@@ -12,7 +12,7 @@ import React from 'react';
 import {COLORS, FONTS, icons, images} from '@/constant';
 
 import AppIntroSlider from 'react-native-app-intro-slider';
-import {TextBody, TextTitle} from '../../../components';
+import {TextBody, TextHeader, TextTitle} from '../../../components';
 
 const {width, height} = Dimensions.get('screen');
 const {Right, Left} = icons;
@@ -61,7 +61,7 @@ const IntroPage = ({navigation}) => {
             resizeMode: 'contain',
           }}
         />
-        <TextTitle style={{marginTop: 50}} title={item.title} />
+        <TextHeader style={{marginTop: 50}} title={item.title} />
         <TextBody style={{marginTop: 20}} title={item.text} />
       </View>
     );

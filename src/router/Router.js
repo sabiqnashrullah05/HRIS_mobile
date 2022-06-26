@@ -3,7 +3,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import {AuthPage} from '../pages';
 import PublicRouter from './PublicRouter';
-import PrivateRouter from './PrivateRouter';
+
+import Tabs from './tabs';
 
 const Stack = createStackNavigator();
 
@@ -17,7 +18,7 @@ const Router = () => {
         }}>
         <Stack.Screen name="AuthPage" component={AuthPage} />
         <Stack.Screen name="Auth" component={PublicRouter} />
-        <Stack.Screen name="Home" component={PrivateRouter} />
+        <Stack.Screen name="HomeScreen" component={Tabs} />
       </Stack.Navigator>
     </NavigationContainer>
   );

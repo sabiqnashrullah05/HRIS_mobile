@@ -25,9 +25,16 @@ export const COLORS = {
   red: '#e83444',
   orange: '#Efbd14',
   gray: '#777777',
-  gray2: '#F8F8F8',
+  gray2: '#B8C1CC',
   lightGray: '#F5F6FB',
-  lightGray2: '#B8C1CC',
+  lightGray2: '#E3E3E3',
+
+  green: '#6DC992',
+  lightGreen: 'rgba(35, 247, 0, 0.2)',
+  yellow: '#FFD900',
+  lightYellow: 'rgba(255, 217, 0, 0.2)',
+  red: '#C1121F',
+  lightRed: 'rgba(193, 18, 31, 0.2)',
 
   transparentBlack1: 'rgba(2, 2, 2, 0.1)',
   transparentBlack3: 'rgba(2, 2, 2, 0.3)',

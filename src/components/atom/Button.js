@@ -2,10 +2,10 @@ import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../constant';
 
-const Button = ({onPress, styleContainer, title, iconRight}) => {
+const Button = ({onPress, styleContainer, title, iconRight, secondary}) => {
   const styles = StyleSheet.create({
     container: {
-      backgroundColor: COLORS.primary.satu,
+      backgroundColor: secondary ? COLORS.lightGray2 : COLORS.primary.satu,
       paddingHorizontal: 25,
       paddingVertical: 12,
       borderRadius: 10,

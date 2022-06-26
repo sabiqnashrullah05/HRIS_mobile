@@ -43,7 +43,7 @@ const Login = ({navigation}) => {
           <TextBody title="Forgot password" />
         </TouchableOpacity>
         <Button
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => navigation.navigate('HomeScreen')}
           styleContainer={{marginTop: 36}}
           title="Login"
         />

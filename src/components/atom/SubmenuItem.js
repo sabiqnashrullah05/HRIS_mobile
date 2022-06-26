@@ -15,7 +15,7 @@ const SubmenuItem = ({title, icon, onPress}) => {
       }}>
       <View
         style={{
-          backgroundColor: COLORS.darkBlue,
+          backgroundColor: title === '' ? COLORS.white : COLORS.darkBlue,
           width: 40,
           height: 40,
           borderRadius: 20,

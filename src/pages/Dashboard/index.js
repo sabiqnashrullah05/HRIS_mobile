@@ -32,7 +32,7 @@ const {
 const Dashboard = ({navigation}) => {
   return (
     <View style={{flex: 1, backgroundColor: COLORS.white}}>
-      <StatusBar translucent={false} />
+      <StatusBar translucent={false} backgroundColor={COLORS.white} />
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Header Start */}
         <View
@@ -68,9 +68,21 @@ const Dashboard = ({navigation}) => {
             title={'Live\nAttendance'}
             icon={<LiveAttendance />}
           />
-          <MenuItem title={'Reimbursment'} icon={<Reimbursment />} />
-          <MenuItem title={'Overtime'} icon={<Overtime />} />
-          <MenuItem title={'Payslip'} icon={<Payslip />} />
+          <MenuItem
+            onPress={() => navigation.navigate('Reimbursment')}
+            title={'Reimbursment'}
+            icon={<Reimbursment />}
+          />
+          <MenuItem
+            onPress={() => navigation.navigate('Overtime')}
+            title={'Overtime'}
+            icon={<Overtime />}
+          />
+          <MenuItem
+            onPress={() => navigation.navigate('Payslip')}
+            title={'Payslip'}
+            icon={<Payslip />}
+          />
         </View>
         {/* Menu Close */}
 
@@ -81,11 +93,31 @@ const Dashboard = ({navigation}) => {
             flexDirection: 'row',
             marginTop: 26,
           }}>
-          <SubmenuItem title="Permission" icon={<Permission />} />
-          <SubmenuItem title="Time Off" icon={<TimeOff />} />
-          <SubmenuItem title="Calender" icon={<Calender />} />
-          <SubmenuItem title="File" icon={<File />} />
-          <SubmenuItem title="Other" icon={<Other />} />
+          <SubmenuItem
+            onPress={() => navigation.navigate('Permission')}
+            title="Permission"
+            icon={<Permission />}
+          />
+          <SubmenuItem
+            onPress={() => navigation.navigate('Timeoff')}
+            title="Time Off"
+            icon={<TimeOff />}
+          />
+          <SubmenuItem
+            onPress={() => navigation.navigate('Calender')}
+            title="Calender"
+            icon={<Calender />}
+          />
+          <SubmenuItem
+            onPress={() => navigation.navigate('File')}
+            title="File"
+            icon={<File />}
+          />
+          <SubmenuItem
+            onPress={() => navigation.navigate('OtherMenu')}
+            title="Other"
+            icon={<Other />}
+          />
         </View>
         {/* Menu 2 Close */}
 
