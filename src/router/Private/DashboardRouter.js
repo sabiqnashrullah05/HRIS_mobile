@@ -10,6 +10,8 @@ import {
   CashAdvanceRequest,
   Dashboard,
   File,
+  IzinKeluarKantor,
+  IzinKeluarKantorDetail,
   LateArrivalPermit,
   LateArrivalPermitDetail,
   LiveAttendance,
@@ -27,6 +29,8 @@ import {
   ReimbursmentDetail,
   ReimbursmentRequest,
   Schedule,
+  SickLeave,
+  SickLeaveDetail,
   Timeoff,
   TimeoffDetail,
   TimeoffRequest,
@@ -68,6 +72,8 @@ const DashboardRouter = () => {
         component={CashAdvanceDetail}
       />
       <HomeStack.Screen name="Permission" component={Permission} />
+      <HomeStack.Screen name="IzinKeluarKantor" component={IzinKeluarKantor} />
+      <HomeStack.Screen name="SickLeave" component={SickLeave} />
       <HomeStack.Screen
         name="LateArrivalPermit"
         component={LateArrivalPermit}
@@ -76,6 +82,11 @@ const DashboardRouter = () => {
         name="LateArrivalPermitDetail"
         component={LateArrivalPermitDetail}
       />
+      <HomeStack.Screen
+        name="IzinKeluarKantorDetail"
+        component={IzinKeluarKantorDetail}
+      />
+      <HomeStack.Screen name="SickLeaveDetail" component={SickLeaveDetail} />
       <HomeStack.Screen name="File" component={File} />
       <HomeStack.Screen name="Loan" component={Loan} />
       <HomeStack.Screen name="LoanRequest" component={LoanRequest} />

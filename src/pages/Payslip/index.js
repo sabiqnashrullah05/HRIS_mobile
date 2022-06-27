@@ -9,6 +9,7 @@ const Payslip = ({navigation}) => {
       <Header title="Payslip" />
       <View style={{paddingHorizontal: 24}}>
         <PayslipCard
+          orange
           onPress={() => navigation.navigate('PayslipDetail')}
           title="January"
           date="29/12/2021 - 28/01/2022"
@@ -16,6 +17,7 @@ const Payslip = ({navigation}) => {
           styleContainer={{marginTop: 30}}
         />
         <PayslipCard
+          green
           onPress={() => navigation.navigate('PayslipDetail')}
           title="February"
           date="29/12/2021 - 28/01/2022"
@@ -23,6 +25,7 @@ const Payslip = ({navigation}) => {
           styleContainer={{marginTop: 15}}
         />
         <PayslipCard
+          violet
           onPress={() => navigation.navigate('PayslipDetail')}
           title="March"
           date="29/12/2021 - 28/01/2022"
@@ -30,6 +33,7 @@ const Payslip = ({navigation}) => {
           styleContainer={{marginTop: 15}}
         />
         <PayslipCard
+          blue
           onPress={() => navigation.navigate('PayslipDetail')}
           title="April"
           date="29/12/2021 - 28/01/2022"

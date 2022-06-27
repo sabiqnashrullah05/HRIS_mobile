@@ -1,11 +1,13 @@
 import {View, ScrollView} from 'react-native';
 import React from 'react';
 import {COLORS, icons} from '../../constant';
-import {Button, Header, TextField, TextTitle} from '../../components';
+import {Button, Header, TextBody, TextField, TextTitle} from '../../components';
+import CheckBox from '@react-native-community/checkbox';
 
 const {Attachment, CalenderBlack, Time} = icons;
 
 const TimeoffRequest = () => {
+  const [checkBox, setCheckBox] = React.useState(false);
   return (
     <View style={{flex: 1, backgroundColor: COLORS.white}}>
       <Header title="Add Time Off" />
@@ -53,6 +55,16 @@ const TimeoffRequest = () => {
           styleContainer={{marginTop: 20}}
           iconRight={<Attachment />}
         />
+        <View
+          style={{flexDirection: 'row', marginTop: 41, alignItems: 'center'}}>
+          <CheckBox
+            tintColors={{true: COLORS.primary.satu}}
+            value={checkBox}
+            onValueChange={newValue => setCheckBox(newValue)}
+          />
+          <TextTitle style={{fontSize: 12}} title="Delegated To" />
+        </View>
+        <TextField label="" placeholder="" />
         <TextField
           label="Delegated Task"
           placeholder="Cuti duration"

@@ -1,9 +1,9 @@
 import {View, ScrollView, Image} from 'react-native';
 import React from 'react';
-import {COLORS, images} from '../../constant';
+import {COLORS, images, icons} from '../../constant';
 import {Header, TextBody, TextTitle} from '../../components';
 
-const {Resi} = images;
+const {Sukses, Pending} = icons;
 
 const TimeoffDetail = () => {
   const List = ({keyTitle, valuetitle}) => {
@@ -110,8 +110,8 @@ const TimeoffDetail = () => {
             borderRadius: 12,
             marginBottom: 20,
           }}>
-          <List keyTitle="Leader" valuetitle="" />
-          <List keyTitle="HRD" valuetitle="" />
+          <List keyTitle="Leader" valuetitle={<Sukses />} />
+          <List keyTitle="HRD" valuetitle={<Pending />} />
         </View>
         {/* Status Approval Close */}
       </ScrollView>

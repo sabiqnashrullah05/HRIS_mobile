@@ -1,7 +1,9 @@
 import {View, Text, ScrollView} from 'react-native';
 import React from 'react';
-import {COLORS} from '../../constant';
+import {COLORS, icons} from '../../constant';
 import {Header, TextBody, TextTitle} from '../../components';
+
+const {Sukses, Pending} = icons;
 
 const ApprovalDetail = () => {
   const List = ({keyTitle, valuetitle}) => {
@@ -119,8 +121,8 @@ const ApprovalDetail = () => {
             borderRadius: 12,
             marginBottom: 20,
           }}>
-          <List keyTitle="Leader" valuetitle="" />
-          <List keyTitle="HRD" valuetitle="" />
+          <List keyTitle="Leader" valuetitle={<Sukses />} />
+          <List keyTitle="HRD" valuetitle={<Pending />} />
         </View>
         {/* Status Approval Close */}
       </ScrollView>

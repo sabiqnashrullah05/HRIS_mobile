@@ -1,9 +1,21 @@
 import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {TextBody, TextTitle} from '../../atom/Text';
-import {COLORS} from '../../../constant';
+import {COLORS, icons} from '../../../constant';
 
-const PayslipCard = ({onPress, styleContainer, title, date, amount}) => {
+const {CalenderPayslip} = icons;
+
+const PayslipCard = ({
+  onPress,
+  styleContainer,
+  title,
+  date,
+  amount,
+  green,
+  orange,
+  violet,
+  blue,
+}) => {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -29,8 +41,32 @@ const PayslipCard = ({onPress, styleContainer, title, date, amount}) => {
           width: 40,
           height: 40,
           borderRadius: 20,
-          backgroundColor: COLORS.lightGreen,
-        }}></View>
+          backgroundColor: green
+            ? COLORS.lightGreen
+            : orange
+            ? '#FFF1E0'
+            : violet
+            ? '#FCF2FF'
+            : blue
+            ? '#ECF9FF'
+            : '#FFF4FC',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <CalenderPayslip
+          fill={
+            green
+              ? COLORS.green
+              : orange
+              ? '#E4891A'
+              : violet
+              ? '#C461E4'
+              : blue
+              ? '#29BFFD'
+              : '#F671CC'
+          }
+        />
+      </View>
       <View style={{flex: 1, marginLeft: 10}}>
         <TextTitle title={title} />
         <TextBody style={{fontSize: 10}} title={date} />

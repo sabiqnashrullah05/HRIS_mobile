@@ -6,6 +6,20 @@ import {COLORS} from '../../constant';
 import {Header, TextBody, TextHeader, TextTitle} from '../../components';
 
 const PayslipDetail = () => {
+  const [selected, setSelected] = React.useState('Salary');
+
+  const data = [
+    {
+      _id: 1,
+      title: 'Salary',
+      amount: 'Rp 2.000.000',
+    },
+    {
+      _id: 2,
+      title: 'Deductions',
+      amount: 'Rp 79.000',
+    },
+  ];
   const List = ({keyTitle, valueTitle, primary}) => {
     return (
       <View style={{flexDirection: 'row', paddingVertical: 8}}>
@@ -49,55 +63,42 @@ const PayslipDetail = () => {
             paddingHorizontal: 24,
             marginTop: 30,
           }}>
-          <TouchableOpacity
-            style={{
-              flexDirection: 'row',
-              alignItems: 'flex-start',
-              flex: 1,
-              justifyContent: 'center',
-            }}>
-            <View
-              style={{
-                width: 12,
-                height: 12,
-                borderRadius: 6,
-                backgroundColor: COLORS.darkBlue,
-                marginTop: 7,
-                marginRight: 10,
-              }}
-            />
-            <View>
-              <TextTitle title="Rp. 2.921.000" />
-              <TextBody title="Salary" />
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              flexDirection: 'row',
-              alignItems: 'flex-start',
-              flex: 1,
-              justifyContent: 'center',
-            }}>
-            <View
-              style={{
-                width: 12,
-                height: 12,
-                borderRadius: 6,
-                backgroundColor: COLORS.lightGray2,
-                marginTop: 7,
-                marginRight: 10,
-              }}
-            />
-            <View>
-              <TextTitle title="Rp. 79.000" />
-              <TextBody title="Deductions" />
-            </View>
-          </TouchableOpacity>
+          {data.map(item => {
+            return (
+              <TouchableOpacity
+                onPress={() => setSelected(item.title)}
+                key={item._id}
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'flex-start',
+                  flex: 1,
+                  justifyContent: 'center',
+                }}>
+                <View
+                  style={{
+                    width: 12,
+                    height: 12,
+                    borderRadius: 6,
+                    backgroundColor:
+                      item.title === selected
+                        ? COLORS.darkBlue
+                        : COLORS.lightGray2,
+                    marginTop: 7,
+                    marginRight: 10,
+                  }}
+                />
+                <View>
+                  <TextTitle title={item.amount} />
+                  <TextBody title={item.title} />
+                </View>
+              </TouchableOpacity>
+            );
+          })}
         </View>
 
         {/* Salary Detail */}
         <View style={{paddingHorizontal: 24, marginVertical: 30}}>
-          <TextTitle title="Salary Detail" />
+          <TextTitle title={`${selected} Detail`} />
           <View
             style={{
               backgroundColor: COLORS.white,
@@ -106,12 +107,30 @@ const PayslipDetail = () => {
               marginTop: 20,
               borderRadius: 12,
             }}>
-            <List keyTitle="Basic salary" valueTitle="Rp 2.000.000" />
-            <List keyTitle="Allowance 1" valueTitle="Rp 200.000" />
-            <List keyTitle="Allowance 2" valueTitle="Rp 200.000" />
-            <List keyTitle="Allowance 3" valueTitle="Rp 221.000" />
-            <List keyTitle="Allowance 4" valueTitle="Rp 300.000" />
-            <List primary keyTitle="Total Salary" valueTitle="Rp 2.921.000" />
+            {selected === 'Salary' ? (
+              <>
+                <List keyTitle="Basic salary" valueTitle="Rp 2.000.000" />
+                <List keyTitle="Allowance 1" valueTitle="Rp 200.000" />
+                <List keyTitle="Allowance 2" valueTitle="Rp 200.000" />
+                <List keyTitle="Allowance 3" valueTitle="Rp 221.000" />
+                <List keyTitle="Allowance 4" valueTitle="Rp 300.000" />
+                <List
+                  primary
+                  keyTitle="Total Salary"
+                  valueTitle="Rp 2.921.000"
+                />
+              </>
+            ) : (
+              <>
+                <List keyTitle="BPJS Ketenagakerjaan" valueTitle="Rp 59.000" />
+                <List keyTitle="BPJS Kesehatan" valueTitle="Rp 19.000" />
+                <List
+                  primary
+                  keyTitle="Total Deductions"
+                  valueTitle="Rp 79.000"
+                />
+              </>
+            )}
           </View>
         </View>
       </ScrollView>

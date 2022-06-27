@@ -1,5 +1,6 @@
 import ArrowRight from '@/assets/icon/arrowRight';
 import ArrowLeft from '@/assets/icon/arrowLeft';
+import ArrowBottom from '../assets/icon/arrowBottom.svg';
 import ArrowRightGray from '@/assets/icon/arrowRightGray';
 import ArrowLeftGray from '@/assets/icon/arrowLeftGray';
 import Right from '../assets/icon/right.svg';
@@ -10,6 +11,7 @@ import Plus from '../assets/icon/plus.svg';
 import Time from '../assets/icon/time.svg';
 import Sort from '../assets/icon/sort.svg';
 import Download from '../assets/icon/download.svg';
+import CalenderPayslip from '../assets/icon/calenderPayslip.svg';
 
 import Next from '../assets/icon/next.svg';
 import Prev from '../assets/icon/prev.svg';
@@ -18,6 +20,10 @@ import clockOut from '../assets/icon/clockOut.svg';
 import ClockDuration from '../assets/icon/clockDuration.svg';
 import CalenderBlack from '../assets/icon/calender.svg';
 import Attachment from '../assets/icon/attachment.svg';
+import AttachmentFile from '../assets/icon/attachmentFile.svg';
+
+import Sukses from '../assets/icon/sukses.svg';
+import Pending from '../assets/icon/pending.svg';
 
 // bottom bar
 import HomeActive from '../assets/images/svg/Tab/homeActive.svg';
@@ -69,6 +75,11 @@ export default {
   Time,
   Sort,
   Download,
+  CalenderPayslip,
+  Sukses,
+  Pending,
+  ArrowBottom,
+  AttachmentFile,
 
   // Tab
   HomeActive,

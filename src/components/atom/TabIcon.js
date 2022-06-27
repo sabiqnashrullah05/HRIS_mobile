@@ -4,7 +4,7 @@ import {COLORS} from '../../constant';
 import {TextBody} from './Text';
 
 const TabIcon = ({focused, icon, title}) => {
-  console.log('focused', focused);
+  // console.log('focused', focused);
   return (
     <View
       style={{

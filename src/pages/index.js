@@ -25,8 +25,12 @@ import CashAdvanceDetail from './CashAdvance/CashAdvanceDetail';
 import CashAdvanceRequest from './CashAdvance/CashAdvanceRequest';
 
 import Permission from './Permission';
+import IzinKeluarKantor from './Permission/IzinKeluarKantor';
+import SickLeave from './Permission/SickLeave';
 import LateArrivalPermit from './Permission/LateArrivalPermit';
 import LateArrivalPermitDetail from './Permission/LateArrivalPermitDetail';
+import IzinKeluarKantorDetail from './Permission/IzinKeluarKantorDetail';
+import SickLeaveDetail from './Permission/SickLeaveDetail';
 
 import File from './File';
 import Attendance from './Attendance';
@@ -80,8 +84,12 @@ export {
   CashAdvanceDetail,
   CashAdvanceRequest,
   Permission,
+  IzinKeluarKantor,
+  SickLeave,
   LateArrivalPermit,
   LateArrivalPermitDetail,
+  IzinKeluarKantorDetail,
+  SickLeaveDetail,
   File,
   Loan,
   LoanRequest,

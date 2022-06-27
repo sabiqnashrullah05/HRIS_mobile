@@ -2,19 +2,45 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {COLORS, icons} from '../../constant';
 import {Header, Tags, TextBody, TextTitle} from '../../components';
+import TabPermission from './TabPermission';
 
 const {Plus} = icons;
 
 const Permission = ({navigation}) => {
+  const [index, setIndex] = React.useState(0);
+
+  const handlePressPermission = () => {
+    switch (index) {
+      case 0:
+        console.log('index satu', index);
+        navigation.navigate('LateArrivalPermit');
+        break;
+      case 1:
+        console.log('index dua', index);
+        navigation.navigate('IzinKeluarKantor');
+        break;
+      case 2:
+        console.log('index tiga', index);
+        navigation.navigate('SickLeave');
+        break;
+
+      default:
+        break;
+    }
+  };
+
+  console.log('index ====>>>  ', index);
+
   return (
     <View style={{flex: 1, backgroundColor: COLORS.white}}>
       <Header title="Permission" />
-      <View style={{paddingHorizontal: 24}}>
+      <View style={{flex: 1}}>
         <View
           style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
             marginTop: 20,
+            paddingHorizontal: 24,
           }}>
           <View>
             <TextTitle title="Activity Log" />
@@ -22,7 +48,7 @@ const Permission = ({navigation}) => {
           </View>
 
           <TouchableOpacity
-            onPress={() => navigation.navigate('LateArrivalPermit')}
+            onPress={handlePressPermission}
             style={{flexDirection: 'row', alignItems: 'center'}}>
             <Plus />
             <TextBody
@@ -31,102 +57,7 @@ const Permission = ({navigation}) => {
             />
           </TouchableOpacity>
         </View>
-
-        {/* Card Start */}
-        <TouchableOpacity
-          onPress={() => navigation.navigate('LateArrivalPermitDetail')}
-          style={{
-            paddingVertical: 14,
-            paddingHorizontal: 20,
-            borderWidth: 1,
-            borderRadius: 12,
-            borderColor: COLORS.lightGray2,
-            marginTop: 21,
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}>
-            <View>
-              <TextTitle title="Ban Bocor" />
-              <TextBody style={{marginTop: 10}} title="03/03/2022" />
-            </View>
-            <Tags type="Approved" />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('LateArrivalPermitDetail')}
-          style={{
-            paddingVertical: 14,
-            paddingHorizontal: 20,
-            borderWidth: 1,
-            borderRadius: 12,
-            borderColor: COLORS.lightGray2,
-            marginTop: 21,
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}>
-            <View>
-              <TextTitle title="Ban Bocor" />
-              <TextBody style={{marginTop: 10}} title="03/03/2022" />
-            </View>
-            <Tags type="Rejected" />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('LateArrivalPermitDetail')}
-          style={{
-            paddingVertical: 14,
-            paddingHorizontal: 20,
-            borderWidth: 1,
-            borderRadius: 12,
-            borderColor: COLORS.lightGray2,
-            marginTop: 21,
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}>
-            <View>
-              <TextTitle title="Ban Bocor" />
-              <TextBody style={{marginTop: 10}} title="03/03/2022" />
-            </View>
-            <Tags type="Approved" />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('LateArrivalPermitDetail')}
-          style={{
-            paddingVertical: 14,
-            paddingHorizontal: 20,
-            borderWidth: 1,
-            borderRadius: 12,
-            borderColor: COLORS.lightGray2,
-            marginTop: 21,
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}>
-            <View>
-              <TextTitle title="Ban Bocor" />
-              <TextBody style={{marginTop: 10}} title="03/03/2022" />
-            </View>
-            <Tags type="Pending" />
-          </View>
-        </TouchableOpacity>
-
-        {/* Card End */}
+        <TabPermission index={index} setIndex={setIndex} />
       </View>
     </View>
   );

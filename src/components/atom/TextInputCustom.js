@@ -30,7 +30,7 @@ const TextInputCustom = props => {
             flexDirection: 'row',
           }}>
           <TextInput
-            placeholderTextColor={COLORS.lightGray2}
+            placeholderTextColor={COLORS.gray}
             style={{
               color: COLORS.black,
               fontSize: 16,

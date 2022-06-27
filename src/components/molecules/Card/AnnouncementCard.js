@@ -1,9 +1,10 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 import {TextBody} from '../../atom/Text';
-import {images, COLORS} from '../../../constant';
+import {images, COLORS, icons} from '../../../constant';
 
 const {UserProfile} = images;
+const {ArrowBottom, AttachmentFile} = icons;
 
 const AnnouncementCard = ({styleContainer}) => {
   return (
@@ -53,6 +54,8 @@ const AnnouncementCard = ({styleContainer}) => {
           borderWidth: 1,
           borderColor: COLORS.lightGray2,
           borderRadius: 8,
+          paddingRight: 10,
+          alignItems: 'center',
         }}>
         <View
           style={{
@@ -60,11 +63,19 @@ const AnnouncementCard = ({styleContainer}) => {
             height: 29,
             backgroundColor: COLORS.darkBlue,
             borderRadius: 5,
-          }}></View>
-        <TextBody
-          style={{marginLeft: 10}}
-          title="Jadwal Kerja IT Support.docx"
-        />
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <AttachmentFile />
+        </View>
+        <View style={{flex: 1}}>
+          <TextBody
+            style={{marginLeft: 10}}
+            title="Jadwal Kerja IT Support.docx"
+          />
+        </View>
+
+        <ArrowBottom />
       </View>
     </View>
   );
