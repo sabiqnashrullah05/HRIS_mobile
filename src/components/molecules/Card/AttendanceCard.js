@@ -4,8 +4,11 @@ import React from 'react';
 
 import {TextBody, TextTitle} from '../../atom/Text';
 import {COLORS} from '../../../constant';
+import {useTheme} from '@react-navigation/native';
 
 const AttendanceCard = ({styleContainer}) => {
+  const {colors} = useTheme();
+
   return (
     <TouchableOpacity
       style={{
@@ -14,7 +17,7 @@ const AttendanceCard = ({styleContainer}) => {
         justifyContent: 'space-between',
         alignItems: 'center',
         marginHorizontal: 24,
-        backgroundColor: COLORS.white,
+        backgroundColor: colors.card,
         borderRadius: 15,
 
         shadowColor: '#000',
@@ -50,14 +53,14 @@ const AttendanceCard = ({styleContainer}) => {
           flex: 1,
           alignItems: 'center',
         }}>
-        <TextBody style={{color: COLORS.black}} title="Clock In" />
+        <TextBody style={{color: colors.textTitle}} title="Clock In" />
         <TextTitle style={{color: COLORS.gray}} title="07:15" />
       </View>
       <View
         style={{width: 1, height: '70%', backgroundColor: COLORS.lightGray2}}
       />
       <View style={{flex: 1, alignItems: 'center'}}>
-        <TextBody style={{color: COLORS.black}} title="Clock Out" />
+        <TextBody style={{color: colors.textTitle}} title="Clock Out" />
         <TextTitle style={{color: COLORS.gray}} title="16:15" />
       </View>
     </TouchableOpacity>

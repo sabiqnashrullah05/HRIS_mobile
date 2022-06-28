@@ -2,12 +2,15 @@ import {View, Text} from 'react-native';
 import React from 'react';
 import {COLORS, images} from '../../constant';
 import {Header, TextBody, TextTitle} from '../../components';
+import {useTheme} from '@react-navigation/native';
 
 const {UserProfile} = images;
 
 const InboxDetail = () => {
+  const {colors} = useTheme();
+
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white2}}>
+    <View style={{flex: 1, backgroundColor: colors.background2}}>
       <Header />
       <View style={{paddingHorizontal: 24}}>
         <TextTitle style={{marginTop: 30}} title="Run Payroll" />
@@ -28,14 +31,14 @@ const InboxDetail = () => {
         {/* Header Close */}
         <View
           style={{
-            backgroundColor: COLORS.white,
+            backgroundColor: colors.card,
             paddingVertical: 20,
             paddingHorizontal: 15,
             borderRadius: 8,
             marginTop: 15,
           }}>
           <TextBody
-            style={{color: COLORS.black}}
+            style={{color: colors.textTitle}}
             title="Your Payroll calculation process for 03-2022 
 completed"
           />

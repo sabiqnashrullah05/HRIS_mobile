@@ -2,10 +2,13 @@ import {View, Text} from 'react-native';
 import React from 'react';
 import {COLORS} from '../../constant';
 import {Header, PayslipCard, TextBody, TextTitle} from '../../components';
+import {useTheme} from '@react-navigation/native';
 
 const Payslip = ({navigation}) => {
+  const {colors} = useTheme();
+
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white}}>
+    <View style={{flex: 1, backgroundColor: colors.background}}>
       <Header title="Payslip" />
       <View style={{paddingHorizontal: 24}}>
         <PayslipCard

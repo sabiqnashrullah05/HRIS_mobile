@@ -2,12 +2,14 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {COLORS, icons} from '../../constant';
 import {Header, Tags, TextBody, TextTitle} from '../../components';
+import {useTheme} from '@react-navigation/native';
 
 const {Plus} = icons;
 
 const Overtime = ({navigation}) => {
+  const {colors} = useTheme();
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white}}>
+    <View style={{flex: 1, backgroundColor: colors.background}}>
       <Header title="Overtime" />
       <View style={{paddingHorizontal: 24}}>
         <View
@@ -40,7 +42,8 @@ const Overtime = ({navigation}) => {
             paddingHorizontal: 20,
             borderWidth: 1,
             borderRadius: 12,
-            borderColor: COLORS.lightGray2,
+            borderColor: colors.border,
+            backgroundColor: colors.card,
             marginTop: 21,
           }}>
           <View
@@ -66,7 +69,8 @@ const Overtime = ({navigation}) => {
             paddingHorizontal: 20,
             borderWidth: 1,
             borderRadius: 12,
-            borderColor: COLORS.lightGray2,
+            borderColor: colors.border,
+            backgroundColor: colors.card,
             marginTop: 21,
           }}>
           <View
@@ -89,7 +93,8 @@ const Overtime = ({navigation}) => {
             paddingHorizontal: 20,
             borderWidth: 1,
             borderRadius: 12,
-            borderColor: COLORS.lightGray2,
+            borderColor: colors.border,
+            backgroundColor: colors.card,
             marginTop: 21,
           }}>
           <View

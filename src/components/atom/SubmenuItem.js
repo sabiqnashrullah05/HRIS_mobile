@@ -2,8 +2,11 @@ import {View, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {TextBody} from './Text';
 import {COLORS} from '../../constant';
+import {useTheme} from '@react-navigation/native';
 
 const SubmenuItem = ({title, icon, onPress}) => {
+  const {colors} = useTheme();
+
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -15,7 +18,7 @@ const SubmenuItem = ({title, icon, onPress}) => {
       }}>
       <View
         style={{
-          backgroundColor: title === '' ? COLORS.white : COLORS.darkBlue,
+          backgroundColor: title === '' ? colors.background : colors.secondary,
           width: 40,
           height: 40,
           borderRadius: 20,
@@ -26,7 +29,7 @@ const SubmenuItem = ({title, icon, onPress}) => {
       </View>
       <TextBody
         style={{
-          color: COLORS.black,
+          color: colors.textTitle,
           textAlign: 'center',
           fontSize: 10,
           lineHeight: 12,

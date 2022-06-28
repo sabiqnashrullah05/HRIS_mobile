@@ -1,3 +1,4 @@
+import {useTheme} from '@react-navigation/native';
 import * as React from 'react';
 import {
   View,
@@ -14,6 +15,8 @@ import PermissionLate from './PermissionLate';
 import PermissionSick from './PermissionSick';
 
 export default function TabPermission({index, setIndex}) {
+  const {colors} = useTheme();
+
   const renderScene = SceneMap({
     first: PermissionLate,
     second: PermissionIzin,
@@ -36,7 +39,7 @@ export default function TabPermission({index, setIndex}) {
           style={{
             flexDirection: 'row',
             borderBottomWidth: 1,
-            borderBottomColor: COLORS.lightGray2,
+            borderBottomColor: colors.border,
 
             // paddingTop: Constants.statusBarHeight,
           }}>

@@ -2,6 +2,7 @@ import {View, Text} from 'react-native';
 import React from 'react';
 import {COLORS, icons} from '../../constant';
 import {Header, SubmenuItem} from '../../components';
+import {useTheme} from '@react-navigation/native';
 
 const {
   Permission,
@@ -15,8 +16,10 @@ const {
 } = icons;
 
 const OtherMenu = ({navigation}) => {
+  const {colors} = useTheme();
+
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white}}>
+    <View style={{flex: 1, backgroundColor: colors.background}}>
       <Header title="Other Service" />
       <View style={{flexDirection: 'row'}}>
         <SubmenuItem

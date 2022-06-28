@@ -2,10 +2,13 @@ import {View, ScrollView, Image} from 'react-native';
 import React from 'react';
 import {COLORS, images, icons} from '../../constant';
 import {Header, TextBody, TextTitle} from '../../components';
+import {useTheme} from '@react-navigation/native';
 
 const {Sukses, Pending} = icons;
 
 const TimeoffDetail = () => {
+  const {colors} = useTheme();
+
   const List = ({keyTitle, valuetitle}) => {
     return (
       <View
@@ -13,18 +16,18 @@ const TimeoffDetail = () => {
           flexDirection: 'row',
           justifyContent: 'space-between',
           borderBottomWidth: 1,
-          borderBottomColor: COLORS.lightGray2,
+          borderBottomColor: colors.border,
           paddingHorizontal: 10,
           paddingVertical: 12,
         }}>
-        <TextBody style={{color: COLORS.black}} title={keyTitle} />
+        <TextBody style={{color: colors.TextTitle}} title={keyTitle} />
         <TextBody title={valuetitle} />
       </View>
     );
   };
 
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white2}}>
+    <View style={{flex: 1, backgroundColor: colors.background2}}>
       <Header title="Detail Timeoff" />
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -33,7 +36,7 @@ const TimeoffDetail = () => {
         <TextBody style={{marginTop: 20, marginBottom: 10}} title="Detail" />
         <View
           style={{
-            backgroundColor: COLORS.white,
+            backgroundColor: colors.card,
             padding: 10,
             paddingBottom: 30,
             borderRadius: 12,
@@ -51,7 +54,7 @@ const TimeoffDetail = () => {
         <TextBody style={{marginTop: 20, marginBottom: 10}} title="Time" />
         <View
           style={{
-            backgroundColor: COLORS.white,
+            backgroundColor: colors.card,
             padding: 10,
             paddingBottom: 30,
             borderRadius: 12,
@@ -68,7 +71,7 @@ const TimeoffDetail = () => {
         />
         <View
           style={{
-            backgroundColor: COLORS.white,
+            backgroundColor: colors.card,
             padding: 10,
             paddingBottom: 30,
             borderRadius: 12,
@@ -84,7 +87,7 @@ const TimeoffDetail = () => {
         />
         <View
           style={{
-            backgroundColor: COLORS.white,
+            backgroundColor: colors.card,
             padding: 10,
             paddingBottom: 30,
             borderRadius: 12,
@@ -104,7 +107,7 @@ const TimeoffDetail = () => {
         />
         <View
           style={{
-            backgroundColor: COLORS.white,
+            backgroundColor: colors.card,
             padding: 10,
             paddingBottom: 30,
             borderRadius: 12,

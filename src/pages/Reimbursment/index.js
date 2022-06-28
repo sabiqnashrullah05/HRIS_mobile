@@ -2,12 +2,15 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {COLORS, icons} from '../../constant';
 import {Header, TextBody, TextTitle} from '../../components';
+import {useTheme} from '@react-navigation/native';
 
 const {Plus} = icons;
 
 const Reimbursment = ({navigation}) => {
+  const {colors} = useTheme();
+
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white}}>
+    <View style={{flex: 1, backgroundColor: colors.background}}>
       <Header title="Reimbursment" />
       <View style={{paddingHorizontal: 24}}>
         <View
@@ -40,7 +43,8 @@ const Reimbursment = ({navigation}) => {
             paddingHorizontal: 20,
             borderWidth: 1,
             borderRadius: 12,
-            borderColor: COLORS.lightGray2,
+            borderColor: colors.border,
+            backgroundColor: colors.card,
             marginTop: 21,
           }}>
           <TextBody title="03/03/2022" />
@@ -54,7 +58,8 @@ const Reimbursment = ({navigation}) => {
             paddingHorizontal: 20,
             borderWidth: 1,
             borderRadius: 12,
-            borderColor: COLORS.lightGray2,
+            borderColor: colors.border,
+            backgroundColor: colors.card,
             marginTop: 14,
           }}>
           <TextBody title="03/03/2022" />

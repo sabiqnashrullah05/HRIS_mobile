@@ -2,11 +2,18 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {InboxCard, TextBody, TextHeader, TextTitle} from '../../components';
 import {COLORS} from '../../constant';
+import {useTheme} from '@react-navigation/native';
 
 const Inbox = ({navigation}) => {
+  const {colors} = useTheme();
+
   return (
     <View
-      style={{flex: 1, marginHorizontal: 24, backgroundColor: COLORS.white2}}>
+      style={{
+        flex: 1,
+        paddingHorizontal: 24,
+        backgroundColor: colors.background2,
+      }}>
       <View style={{marginTop: 30}}>
         <TextHeader style={{fontSize: 24, marginBottom: 4}} title="Inbox" />
         <TextTitle title="1 New Inbox" />

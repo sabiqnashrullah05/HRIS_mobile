@@ -15,6 +15,7 @@ import {
   TextHeader,
   AnnouncementCard,
 } from '../../components';
+import {useTheme} from '@react-navigation/native';
 
 const {UserProfile} = images;
 const {
@@ -30,9 +31,16 @@ const {
 } = icons;
 
 const Dashboard = ({navigation}) => {
+  const {colors} = useTheme();
+  const themes = useTheme();
+
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white}}>
-      <StatusBar translucent={false} backgroundColor={COLORS.white} />
+    <View style={{flex: 1, backgroundColor: colors.background}}>
+      <StatusBar
+        translucent={false}
+        barStyle={themes.barContent}
+        backgroundColor={colors.background}
+      />
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Header Start */}
         <View
@@ -55,7 +63,7 @@ const Dashboard = ({navigation}) => {
         {/* Menu Start */}
         <View
           style={{
-            backgroundColor: COLORS.primary.satu,
+            backgroundColor: colors.primary,
             borderRadius: 15,
             marginHorizontal: 17,
             flexDirection: 'row',

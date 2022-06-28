@@ -4,12 +4,15 @@ import React from 'react';
 import {COLORS, icons} from '../../constant';
 import Header from '../../components/atom/Header';
 import {TextBody, TextTitle} from '../../components/atom/Text';
+import {useTheme} from '@react-navigation/native';
 
 const {Sort, Download} = icons;
 
 const File = () => {
+  const {colors} = useTheme();
+
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white}}>
+    <View style={{flex: 1, backgroundColor: colors.background}}>
       <Header title="File" />
       <View style={{paddingHorizontal: 24}}>
         {/* Header Content Start */}
@@ -27,7 +30,8 @@ const File = () => {
         <TouchableOpacity
           style={{
             borderWidth: 1,
-            borderColor: COLORS.lightGray2,
+            borderColor: colors.border,
+            backgroundColor: colors.card,
             paddingVertical: 14,
             paddingHorizontal: 20,
             borderRadius: 12,
@@ -51,7 +55,8 @@ const File = () => {
         <TouchableOpacity
           style={{
             borderWidth: 1,
-            borderColor: COLORS.lightGray2,
+            borderColor: colors.border,
+            backgroundColor: colors.card,
             paddingVertical: 14,
             paddingHorizontal: 20,
             borderRadius: 12,

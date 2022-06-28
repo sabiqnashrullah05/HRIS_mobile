@@ -2,10 +2,12 @@ import {View, Text, ScrollView} from 'react-native';
 import React from 'react';
 import {COLORS, images} from '../../constant';
 import {Header, TextBody, TextHeader, TextTitle} from '../../components';
+import {useTheme} from '@react-navigation/native';
 
 const {UserProfile} = images;
 
 const EmployeInformation = () => {
+  const {colors} = useTheme();
   const List = ({keyTitle, valuetitle}) => {
     return (
       <View
@@ -13,17 +15,17 @@ const EmployeInformation = () => {
           flexDirection: 'row',
           justifyContent: 'space-between',
           borderBottomWidth: 1,
-          borderBottomColor: COLORS.lightGray2,
+          borderBottomColor: colors.border,
           paddingHorizontal: 10,
           paddingVertical: 12,
         }}>
-        <TextBody style={{color: COLORS.black}} title={keyTitle} />
+        <TextBody style={{color: colors.textTitle}} title={keyTitle} />
         <TextBody title={valuetitle} />
       </View>
     );
   };
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white2}}>
+    <View style={{flex: 1, backgroundColor: colors.background2}}>
       <Header title="Employee Information" />
       <ScrollView contentContainerStyle={{paddingHorizontal: 24}}>
         <TextTitle style={{marginTop: 20}} title="Personal Information" />
@@ -34,7 +36,7 @@ const EmployeInformation = () => {
           <View style={{marginLeft: 20}}>
             <TextHeader title="Kylie Jenner" />
             <TextBody
-              style={{fontSize: 14, color: COLORS.black}}
+              style={{fontSize: 14, color: colors.textTitle}}
               title="Kylee.jen@gmail.com"
             />
           </View>
@@ -43,7 +45,7 @@ const EmployeInformation = () => {
         {/* display information */}
         <View
           style={{
-            backgroundColor: COLORS.white,
+            backgroundColor: colors.card,
             padding: 10,
             paddingBottom: 30,
             borderRadius: 12,
@@ -60,7 +62,7 @@ const EmployeInformation = () => {
         />
         <View
           style={{
-            backgroundColor: COLORS.white,
+            backgroundColor: colors.card,
             padding: 10,
             paddingBottom: 30,
             borderRadius: 12,

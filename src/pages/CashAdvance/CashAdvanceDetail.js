@@ -2,17 +2,19 @@ import {View, Text, Image} from 'react-native';
 import React from 'react';
 import {COLORS, images} from '../../constant';
 import {Header, TextBody, TextTitle} from '../../components';
+import {useTheme} from '@react-navigation/native';
 
 const {Resi} = images;
 
 const CashAdvanceDetail = () => {
+  const {colors} = useTheme();
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white2}}>
+    <View style={{flex: 1, backgroundColor: colors.background2}}>
       <Header title="Detail Cash Advance" />
       <View style={{paddingHorizontal: 24}}>
         <View style={{alignItems: 'flex-end', marginTop: 35}}>
           <TextBody
-            style={{color: COLORS.black}}
+            style={{color: colors.textTitle}}
             title="Cash Advance Nominal"
           />
           <TextTitle title="Rp. 100.000" />
@@ -21,7 +23,7 @@ const CashAdvanceDetail = () => {
         <View
           style={{
             paddingVertical: 10,
-            backgroundColor: COLORS.white,
+            backgroundColor: colors.card,
             borderRadius: 15,
           }}>
           <View
@@ -30,10 +32,10 @@ const CashAdvanceDetail = () => {
               borderBottomWidth: 1,
               paddingVertical: 12,
               paddingHorizontal: 20,
-              borderBottomColor: COLORS.lightGray2,
+              borderBottomColor: colors.border,
             }}>
             <View style={{flex: 1}}>
-              <TextBody style={{color: COLORS.black}} title="Date of Use" />
+              <TextBody style={{color: colors.textTitle}} title="Date of Use" />
             </View>
             <View style={{flex: 1, alignItems: 'flex-end'}}>
               <TextBody title="27/02.2022" />
@@ -45,10 +47,10 @@ const CashAdvanceDetail = () => {
               borderBottomWidth: 1,
               paddingVertical: 12,
               paddingHorizontal: 20,
-              borderBottomColor: COLORS.lightGray2,
+              borderBottomColor: colors.border,
             }}>
             <View style={{flex: 1}}>
-              <TextBody style={{color: COLORS.black}} title="Policy Name" />
+              <TextBody style={{color: colors.textTitle}} title="Policy Name" />
             </View>
             <View style={{flex: 1, alignItems: 'flex-end'}}>
               <TextBody title="Uli Ahda Raihan" />
@@ -60,10 +62,10 @@ const CashAdvanceDetail = () => {
               borderBottomWidth: 1,
               paddingVertical: 12,
               paddingHorizontal: 20,
-              borderBottomColor: COLORS.lightGray2,
+              borderBottomColor: colors.border,
             }}>
             <View style={{flex: 1}}>
-              <TextBody style={{color: COLORS.black}} title="Reason" />
+              <TextBody style={{color: colors.textTitle}} title="Reason" />
             </View>
             <View style={{flex: 1, alignItems: 'flex-end'}}>
               <TextBody
@@ -79,7 +81,7 @@ const CashAdvanceDetail = () => {
               paddingHorizontal: 20,
             }}>
             <View style={{flex: 1}}>
-              <TextBody style={{color: COLORS.black}} title="Attachment" />
+              <TextBody style={{color: colors.textTitle}} title="Attachment" />
             </View>
             <View style={{flex: 1, alignItems: 'flex-end'}}>
               <Image source={Resi} style={{width: 115, height: 115}} />

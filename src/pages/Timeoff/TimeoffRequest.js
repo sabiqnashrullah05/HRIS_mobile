@@ -3,13 +3,16 @@ import React from 'react';
 import {COLORS, icons} from '../../constant';
 import {Button, Header, TextBody, TextField, TextTitle} from '../../components';
 import CheckBox from '@react-native-community/checkbox';
+import {useTheme} from '@react-navigation/native';
 
 const {Attachment, CalenderBlack, Time} = icons;
 
 const TimeoffRequest = () => {
+  const {colors} = useTheme();
+
   const [checkBox, setCheckBox] = React.useState(false);
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white}}>
+    <View style={{flex: 1, backgroundColor: colors.background}}>
       <Header title="Add Time Off" />
       <ScrollView contentContainerStyle={{paddingHorizontal: 24}}>
         <TextField
@@ -74,7 +77,7 @@ const TimeoffRequest = () => {
           style={{
             width: '100%',
             height: 1,
-            backgroundColor: COLORS.lightGray2,
+            backgroundColor: colors.border,
             marginTop: 20,
           }}
         />

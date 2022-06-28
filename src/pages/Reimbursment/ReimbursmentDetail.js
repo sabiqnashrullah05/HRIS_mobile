@@ -2,17 +2,20 @@ import {View, Text, Image} from 'react-native';
 import React from 'react';
 import {COLORS, images} from '../../constant';
 import {Header, TextBody, TextTitle} from '../../components';
+import {useTheme} from '@react-navigation/native';
 
 const {Resi} = images;
 
 const ReimbursmentDetail = () => {
+  const {colors} = useTheme();
+
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white2}}>
+    <View style={{flex: 1, backgroundColor: colors.background2}}>
       <Header title="Detail Reimbursment" />
       <View style={{paddingHorizontal: 24}}>
         <View style={{alignItems: 'flex-end', marginTop: 35}}>
           <TextBody
-            style={{color: COLORS.black}}
+            style={{color: colors.textTitle}}
             title="Reimbursment Nominal"
           />
           <TextTitle title="Rp. 100.000" />
@@ -21,7 +24,7 @@ const ReimbursmentDetail = () => {
         <View
           style={{
             paddingVertical: 10,
-            backgroundColor: COLORS.white,
+            backgroundColor: colors.card,
             borderRadius: 15,
           }}>
           <View
@@ -30,10 +33,10 @@ const ReimbursmentDetail = () => {
               borderBottomWidth: 1,
               paddingVertical: 12,
               paddingHorizontal: 20,
-              borderBottomColor: COLORS.lightGray2,
+              borderBottomColor: colors.border,
             }}>
             <View style={{flex: 1}}>
-              <TextBody style={{color: COLORS.black}} title="Date" />
+              <TextBody style={{color: colors.textTitle}} title="Date" />
             </View>
             <View style={{flex: 1, alignItems: 'flex-end'}}>
               <TextBody title="27/02.2022" />
@@ -45,10 +48,10 @@ const ReimbursmentDetail = () => {
               borderBottomWidth: 1,
               paddingVertical: 12,
               paddingHorizontal: 20,
-              borderBottomColor: COLORS.lightGray2,
+              borderBottomColor: colors.border,
             }}>
             <View style={{flex: 1}}>
-              <TextBody style={{color: COLORS.black}} title="Reason" />
+              <TextBody style={{color: colors.textTitle}} title="Reason" />
             </View>
             <View style={{flex: 1, alignItems: 'flex-end'}}>
               <TextBody title="Pembelian Remote AC" />
@@ -61,7 +64,7 @@ const ReimbursmentDetail = () => {
               paddingHorizontal: 20,
             }}>
             <View style={{flex: 1}}>
-              <TextBody style={{color: COLORS.black}} title="Attachment" />
+              <TextBody style={{color: colors.textTitle}} title="Attachment" />
             </View>
             <View style={{flex: 1, alignItems: 'flex-end'}}>
               <Image source={Resi} style={{width: 115, height: 115}} />

@@ -2,10 +2,12 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {COLORS} from '../../constant';
 import {Header, TextBody, TextTitle} from '../../components';
+import {useTheme} from '@react-navigation/native';
 
 const Contract = ({navigation}) => {
+  const {colors} = useTheme();
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white}}>
+    <View style={{flex: 1, backgroundColor: colors.background}}>
       <Header title="My Contract" />
       <View style={{paddingHorizontal: 24}}>
         <TextTitle style={{marginTop: 20}} title="Contract History" />
@@ -16,8 +18,9 @@ const Contract = ({navigation}) => {
             padding: 20,
             borderRadius: 12,
             borderWidth: 1,
-            borderColor: COLORS.lightGray2,
+            borderColor: colors.border,
             marginTop: 30,
+            backgroundColor: colors.card,
           }}>
           <TextTitle title="Contract 1" />
           <TextBody title="17/07/2022" />
@@ -28,7 +31,8 @@ const Contract = ({navigation}) => {
             padding: 20,
             borderRadius: 12,
             borderWidth: 1,
-            borderColor: COLORS.lightGray2,
+            borderColor: colors.border,
+            backgroundColor: colors.card,
             marginTop: 15,
           }}>
           <TextTitle title="Contract 2" />

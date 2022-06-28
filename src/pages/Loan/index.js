@@ -2,12 +2,14 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {COLORS, icons} from '../../constant';
 import {Header, TextBody, TextTitle} from '../../components';
+import {useTheme} from '@react-navigation/native';
 
 const {Plus} = icons;
 
 const Loan = ({navigation}) => {
+  const {colors} = useTheme();
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white}}>
+    <View style={{flex: 1, backgroundColor: colors.background}}>
       <Header title="Loan" />
       <View style={{paddingHorizontal: 24}}>
         <View
@@ -40,7 +42,8 @@ const Loan = ({navigation}) => {
             paddingHorizontal: 20,
             borderWidth: 1,
             borderRadius: 12,
-            borderColor: COLORS.lightGray2,
+            borderColor: colors.border,
+            backgroundColor: colors.card,
             marginTop: 21,
           }}>
           <TextTitle style={{marginTop: 10}} title="Loan Name" />
@@ -53,7 +56,8 @@ const Loan = ({navigation}) => {
             paddingHorizontal: 20,
             borderWidth: 1,
             borderRadius: 12,
-            borderColor: COLORS.lightGray2,
+            borderColor: colors.border,
+            backgroundColor: colors.card,
             marginTop: 21,
           }}>
           <TextTitle style={{marginTop: 10}} title="Loan Name" />
@@ -66,7 +70,8 @@ const Loan = ({navigation}) => {
             paddingHorizontal: 20,
             borderWidth: 1,
             borderRadius: 12,
-            borderColor: COLORS.lightGray2,
+            borderColor: colors.border,
+            backgroundColor: colors.card,
             marginTop: 21,
           }}>
           <TextTitle style={{marginTop: 10}} title="Loan Name" />
@@ -79,7 +84,8 @@ const Loan = ({navigation}) => {
             paddingHorizontal: 20,
             borderWidth: 1,
             borderRadius: 12,
-            borderColor: COLORS.lightGray2,
+            borderColor: colors.border,
+            backgroundColor: colors.card,
             marginTop: 21,
           }}>
           <TextTitle style={{marginTop: 10}} title="Loan Name" />

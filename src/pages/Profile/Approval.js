@@ -1,11 +1,13 @@
 import {View, ScrollView, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {COLORS} from '../../constant';
-import {ApprovalCard, Header, TextBody, TextTitle} from '../../components';
+import {ApprovalCard, Header} from '../../components';
+import {useTheme} from '@react-navigation/native';
 
 const Approval = ({navigation}) => {
+  const {colors} = useTheme();
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white}}>
+    <View style={{flex: 1, backgroundColor: colors.background}}>
       <Header title="My Approval" />
       <ScrollView contentContainerStyle={{paddingHorizontal: 24}}>
         <ApprovalCard

@@ -1,5 +1,6 @@
 import ArrowRight from '@/assets/icon/arrowRight';
 import ArrowLeft from '@/assets/icon/arrowLeft';
+import ArrowLeftWhite from '@/assets/icon/arrowLeftWhite';
 import ArrowBottom from '../assets/icon/arrowBottom.svg';
 import ArrowRightGray from '@/assets/icon/arrowRightGray';
 import ArrowLeftGray from '@/assets/icon/arrowLeftGray';
@@ -12,6 +13,7 @@ import Time from '../assets/icon/time.svg';
 import Sort from '../assets/icon/sort.svg';
 import Download from '../assets/icon/download.svg';
 import CalenderPayslip from '../assets/icon/calenderPayslip.svg';
+import DarkMode from '../assets/icon/darkMode.svg';
 
 import Next from '../assets/icon/next.svg';
 import Prev from '../assets/icon/prev.svg';
@@ -58,6 +60,7 @@ import LogOut from '../assets/icon/logOut.svg';
 export default {
   ArrowRight,
   ArrowLeft,
+  ArrowLeftWhite,
   ArrowRightGray,
   ArrowLeftGray,
   Right,
@@ -80,6 +83,7 @@ export default {
   Pending,
   ArrowBottom,
   AttachmentFile,
+  DarkMode,
 
   // Tab
   HomeActive,

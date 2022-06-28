@@ -2,6 +2,7 @@ import {View, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {TextBody, TextTitle} from '../../atom/Text';
 import {COLORS} from '../../../constant';
+import {useTheme} from '@react-navigation/native';
 
 const ApprovalCard = ({
   onPress,
@@ -11,6 +12,7 @@ const ApprovalCard = ({
   description,
   styleContainer,
 }) => {
+  const {colors} = useTheme();
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -18,7 +20,8 @@ const ApprovalCard = ({
         paddingVertical: 20,
         paddingHorizontal: 10,
         borderWidth: 1,
-        borderColor: COLORS.lightGray2,
+        borderColor: colors.border,
+        backgroundColor: colors.card,
         borderRadius: 12,
         ...styleContainer,
       }}>
@@ -27,7 +30,7 @@ const ApprovalCard = ({
       <View
         style={{
           flexDirection: 'row',
-          backgroundColor: COLORS.lightGray,
+          backgroundColor: colors.border,
           alignItems: 'center',
           marginTop: 10,
         }}>
@@ -46,7 +49,7 @@ const ApprovalCard = ({
         />
         <View style={{flex: 1}}>
           <TextBody
-            style={{color: COLORS.black, marginLeft: 10}}
+            style={{color: colors.textTitle, marginLeft: 10}}
             title={description}
           />
         </View>

@@ -1,13 +1,16 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 import {FONTS, COLORS, SIZES} from '../../constant';
+import {useTheme} from '@react-navigation/native';
 
 const TextHeader = ({title, style}) => {
+  const {colors} = useTheme();
+
   return (
     <Text
       style={{
         ...FONTS.h2,
-        color: COLORS.black,
+        color: colors.textTitle,
         ...style,
       }}>
       {title}
@@ -16,11 +19,12 @@ const TextHeader = ({title, style}) => {
 };
 
 const TextTitle = ({title, style}) => {
+  const {colors} = useTheme();
   return (
     <Text
       style={{
         ...FONTS.h3,
-        color: COLORS.black,
+        color: colors.textTitle,
         ...style,
       }}>
       {title}
@@ -28,11 +32,12 @@ const TextTitle = ({title, style}) => {
   );
 };
 const TextBody = ({title, style}) => {
+  const {colors} = useTheme();
   return (
     <Text
       style={{
         ...FONTS.body5,
-        color: COLORS.gray,
+        color: colors.textBody,
         ...style,
       }}>
       {title}

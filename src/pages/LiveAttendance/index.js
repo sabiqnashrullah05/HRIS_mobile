@@ -5,11 +5,14 @@ import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import {Header, TextBody, TextHeader, TextTitle} from '../../components';
 import {COLORS, icons, images} from '../../constant';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {useTheme} from '@react-navigation/native';
 
 const {Next, Prev, ClockDuration, ClockIn, clockOut, CalenderBlack} = icons;
 const {ClockInButton} = images;
 
 const LiveAttendance = ({navigation}) => {
+  const {colors} = useTheme();
+
   const handlePressCamera = async () => {
     try {
       const result = await launchCamera({
@@ -24,8 +27,7 @@ const LiveAttendance = ({navigation}) => {
     }
   };
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white2}}>
-      <StatusBar backgroundColor={COLORS.white} />
+    <View style={{flex: 1, backgroundColor: colors.background2}}>
       <Header title="Live Attendance" />
 
       {/* Date Navigator Start */}
@@ -34,7 +36,7 @@ const LiveAttendance = ({navigation}) => {
           flexDirection: 'row',
           paddingVertical: 10,
           paddingHorizontal: 12,
-          backgroundColor: COLORS.white,
+          backgroundColor: colors.card,
           marginHorizontal: 24,
           marginTop: 20,
           borderRadius: 12,
@@ -79,7 +81,7 @@ const LiveAttendance = ({navigation}) => {
             flex: 1,
             alignItems: 'center',
             borderRightWidth: 1,
-            borderRightColor: COLORS.lightGray2,
+            borderRightColor: colors.border,
             marginRight: 10,
           }}>
           <View style={{marginRight: 10}}>
@@ -110,7 +112,7 @@ const LiveAttendance = ({navigation}) => {
             flex: 1,
             alignItems: 'center',
             borderLeftWidth: 1,
-            borderLeftColor: COLORS.lightGray2,
+            borderLeftColor: colors.border,
             paddingLeft: 10,
           }}>
           <View style={{marginRight: 10}}>
@@ -129,7 +131,7 @@ const LiveAttendance = ({navigation}) => {
         style={{
           marginTop: 57,
           padding: 20,
-          backgroundColor: COLORS.white,
+          backgroundColor: colors.card,
           marginHorizontal: 24,
           borderRadius: 5,
         }}>

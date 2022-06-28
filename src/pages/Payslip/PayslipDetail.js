@@ -4,9 +4,11 @@ import ProgressCircle from 'react-native-progress-circle';
 
 import {COLORS} from '../../constant';
 import {Header, TextBody, TextHeader, TextTitle} from '../../components';
+import {useTheme} from '@react-navigation/native';
 
 const PayslipDetail = () => {
   const [selected, setSelected] = React.useState('Salary');
+  const {colors} = useTheme();
 
   const data = [
     {
@@ -25,13 +27,13 @@ const PayslipDetail = () => {
       <View style={{flexDirection: 'row', paddingVertical: 8}}>
         <View style={{flex: 1, alignItems: 'center'}}>
           <TextBody
-            style={{color: primary ? COLORS.primary.satu : COLORS.gray}}
+            style={{color: primary ? COLORS.primary.satu : colors.textBody}}
             title={keyTitle}
           />
         </View>
         <View style={{flex: 1, alignItems: 'center'}}>
           <TextBody
-            style={{color: primary ? COLORS.primary.satu : COLORS.gray}}
+            style={{color: primary ? COLORS.primary.satu : colors.textBody}}
             title={valueTitle}
           />
         </View>
@@ -39,7 +41,7 @@ const PayslipDetail = () => {
     );
   };
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white2}}>
+    <View style={{flex: 1, backgroundColor: colors.background2}}>
       <Header title="Detail Payslip" />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{alignItems: 'center', marginTop: 20}}>
@@ -48,8 +50,8 @@ const PayslipDetail = () => {
             radius={140}
             borderWidth={18}
             color={COLORS.darkBlue}
-            shadowColor={COLORS.lightGray2}
-            bgColor={COLORS.white2}>
+            shadowColor={colors.card}
+            bgColor={colors.background2}>
             <TextHeader title="Rp 3.000.000" />
             <TextBody title="Gross Pay" />
           </ProgressCircle>
@@ -101,7 +103,7 @@ const PayslipDetail = () => {
           <TextTitle title={`${selected} Detail`} />
           <View
             style={{
-              backgroundColor: COLORS.white,
+              backgroundColor: colors.card,
               paddingHorizontal: 20,
               paddingVertical: 12,
               marginTop: 20,

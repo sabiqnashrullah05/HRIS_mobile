@@ -9,16 +9,16 @@ import {
   TextInputCustom,
   TextTitle,
 } from '../../../components';
-
-const {Google, Apple} = images;
+import {useTheme} from '@react-navigation/native';
 
 const SignUp = ({navigation}) => {
+  const {colors} = useTheme();
   const [checkBox, setCheckBox] = React.useState(false);
   return (
     <ScrollView
       contentContainerStyle={{
         flex: 1,
-        backgroundColor: COLORS.white,
+        backgroundColor: colors.background,
         paddingHorizontal: 24,
       }}>
       <View style={{marginTop: 100}}>
@@ -27,7 +27,7 @@ const SignUp = ({navigation}) => {
           title={'Create an Account\nto Start !'}
         />
         <TextBody
-          style={{color: COLORS.black}}
+          style={{color: colors.textTitle}}
           title="Please fill in the form to continue"
         />
         <TextInputCustom

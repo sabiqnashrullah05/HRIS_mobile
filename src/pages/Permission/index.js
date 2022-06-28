@@ -3,10 +3,13 @@ import React from 'react';
 import {COLORS, icons} from '../../constant';
 import {Header, Tags, TextBody, TextTitle} from '../../components';
 import TabPermission from './TabPermission';
+import {useTheme} from '@react-navigation/native';
 
 const {Plus} = icons;
 
 const Permission = ({navigation}) => {
+  const {colors} = useTheme();
+
   const [index, setIndex] = React.useState(0);
 
   const handlePressPermission = () => {
@@ -32,7 +35,7 @@ const Permission = ({navigation}) => {
   console.log('index ====>>>  ', index);
 
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white}}>
+    <View style={{flex: 1, backgroundColor: colors.background}}>
       <Header title="Permission" />
       <View style={{flex: 1}}>
         <View

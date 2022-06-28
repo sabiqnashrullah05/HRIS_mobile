@@ -8,21 +8,29 @@ import {
   TextInputCustom,
   TextTitle,
 } from '../../../components';
+import {useTheme} from '@react-navigation/native';
+import {ThemeContext} from '../../../router/Router';
 
 const {ForgotPasswordImage} = images;
-const {ArrowLeft} = icons;
+const {ArrowLeft, ArrowLeftWhite} = icons;
 
 const ForgotPassword = ({navigation}) => {
+  const {colors} = useTheme();
+  const {theme} = React.useContext(ThemeContext);
   return (
     <View
-      style={{flex: 1, backgroundColor: COLORS.white, paddingHorizontal: 24}}>
+      style={{
+        flex: 1,
+        backgroundColor: colors.background,
+        paddingHorizontal: 24,
+      }}>
       <TouchableOpacity
         onPress={() => navigation.goBack()}
         style={{marginTop: 50}}>
-        <ArrowLeft />
+        {theme === 'light' ? <ArrowLeft /> : <ArrowLeftWhite />}
       </TouchableOpacity>
       <View style={{marginTop: 0}}>
-        <View style={{marginBottom: 20}}>
+        <View style={{marginVertical: 40}}>
           <ForgotPasswordImage />
         </View>
         <TextHeader style={{fontSize: 24}} title={'Forgot\nPassword?'} />

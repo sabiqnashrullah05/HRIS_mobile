@@ -48,11 +48,6 @@ const IntroPage = ({navigation}) => {
           //   alignItems: 'center',
           marginHorizontal: 24,
         }}>
-        <StatusBar
-          backgroundColor={'transparent'}
-          translucent
-          barStyle="dark-content"
-        />
         <Image
           source={item.image}
           style={{

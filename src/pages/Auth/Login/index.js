@@ -8,20 +8,26 @@ import {
   TextInputCustom,
   TextTitle,
 } from '../../../components';
+import {useTheme} from '@react-navigation/native';
 
 const {Google, Apple} = images;
 
 const Login = ({navigation}) => {
+  const {colors} = useTheme();
   return (
     <View
-      style={{flex: 1, backgroundColor: COLORS.white, paddingHorizontal: 24}}>
+      style={{
+        flex: 1,
+        backgroundColor: colors.background,
+        paddingHorizontal: 24,
+      }}>
       <View style={{marginTop: 100}}>
         <TextHeader style={{fontSize: 24}} title={'Hello\nWelcome Back !'} />
         <TextBody
           style={{
             fontSize: 24,
             marginTop: 10,
-            color: COLORS.black,
+            color: colors.textTitle,
             paddingVertical: 5,
           }}
           title="Lets sign you in"
@@ -48,7 +54,7 @@ const Login = ({navigation}) => {
           title="Login"
         />
         <TextBody
-          style={{textAlign: 'center', marginTop: 20, color: COLORS.black}}
+          style={{textAlign: 'center', marginTop: 20, color: colors.textTitle}}
           title="Or"
         />
         <View
@@ -63,7 +69,8 @@ const Login = ({navigation}) => {
               alignSelf: 'center',
               justifyContent: 'center',
               borderWidth: 1,
-              borderColor: COLORS.black,
+              borderColor: colors.border,
+              backgroundColor: COLORS.white,
               borderRadius: 12,
               flexDirection: 'row',
               paddingVertical: 12,
@@ -82,8 +89,8 @@ const Login = ({navigation}) => {
               alignSelf: 'center',
               justifyContent: 'center',
               borderWidth: 1,
-              backgroundColor: COLORS.black,
-              borderColor: COLORS.black,
+              backgroundColor: '#343434',
+              borderColor: '#343434',
               borderRadius: 12,
               flexDirection: 'row',
               paddingVertical: 12,

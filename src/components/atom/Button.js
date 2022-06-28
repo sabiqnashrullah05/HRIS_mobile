@@ -1,11 +1,13 @@
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../constant';
+import {useTheme} from '@react-navigation/native';
 
 const Button = ({onPress, styleContainer, title, iconRight, secondary}) => {
+  const {colors} = useTheme();
   const styles = StyleSheet.create({
     container: {
-      backgroundColor: secondary ? COLORS.lightGray2 : COLORS.primary.satu,
+      backgroundColor: secondary ? colors.border : colors.primary,
       paddingHorizontal: 25,
       paddingVertical: 12,
       borderRadius: 10,

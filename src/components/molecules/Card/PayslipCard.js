@@ -2,6 +2,7 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {TextBody, TextTitle} from '../../atom/Text';
 import {COLORS, icons} from '../../../constant';
+import {useTheme} from '@react-navigation/native';
 
 const {CalenderPayslip} = icons;
 
@@ -16,13 +17,15 @@ const PayslipCard = ({
   violet,
   blue,
 }) => {
+  const {colors} = useTheme();
+
   return (
     <TouchableOpacity
       onPress={onPress}
       style={{
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: COLORS.white,
+        backgroundColor: colors.card,
         shadowColor: 'rgba(0, 0, 0, 0.09)',
         shadowOffset: {
           width: 0,
@@ -42,7 +45,7 @@ const PayslipCard = ({
           height: 40,
           borderRadius: 20,
           backgroundColor: green
-            ? COLORS.lightGreen
+            ? '#F2FFFB'
             : orange
             ? '#FFF1E0'
             : violet

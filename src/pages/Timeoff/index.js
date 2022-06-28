@@ -3,19 +3,23 @@ import React from 'react';
 import {COLORS, icons} from '../../constant';
 import {Header, Tags, TextBody, TextTitle, TextHeader} from '../../components';
 import SemiCircleProgress from 'react-native-semi-circle-progress';
+import {useTheme} from '@react-navigation/native';
 
 const {Plus} = icons;
 
 const Timeoff = ({navigation}) => {
+  const {colors} = useTheme();
+
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white}}>
+    <View style={{flex: 1, backgroundColor: colors.background}}>
       <Header title="Time Off" />
       <View style={{alignItems: 'center', marginVertical: 30}}>
         <SemiCircleProgress
           prog
           percentage={80}
+          interiorCircleColor={colors.background}
           progressColor={COLORS.red}
-          progressShadowColor={COLORS.lightGray2}
+          progressShadowColor={colors.card}
           circleRadius={140}
           progressWidth={18}>
           <TextHeader title="8 Days" />
@@ -54,7 +58,8 @@ const Timeoff = ({navigation}) => {
             paddingHorizontal: 20,
             borderWidth: 1,
             borderRadius: 12,
-            borderColor: COLORS.lightGray2,
+            borderColor: colors.border,
+            backgroundColor: colors.card,
             marginTop: 21,
           }}>
           <View
@@ -77,7 +82,8 @@ const Timeoff = ({navigation}) => {
             paddingHorizontal: 20,
             borderWidth: 1,
             borderRadius: 12,
-            borderColor: COLORS.lightGray2,
+            borderColor: colors.border,
+            backgroundColor: colors.card,
             marginTop: 21,
           }}>
           <View
@@ -100,7 +106,8 @@ const Timeoff = ({navigation}) => {
             paddingHorizontal: 20,
             borderWidth: 1,
             borderRadius: 12,
-            borderColor: COLORS.lightGray2,
+            borderColor: colors.border,
+            backgroundColor: colors.card,
             marginTop: 21,
           }}>
           <View

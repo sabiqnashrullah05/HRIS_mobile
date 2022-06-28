@@ -8,13 +8,15 @@ import {
 import React from 'react';
 import {COLORS, icons} from '../../constant';
 import {AnnouncementCard, Header, TextTitle} from '../../components';
+import {useTheme} from '@react-navigation/native';
 
 const {ArrowLeft} = icons;
 
 const Announcement = ({navigation}) => {
+  const {colors} = useTheme();
+
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white2}}>
-      <StatusBar backgroundColor={COLORS.white} />
+    <View style={{flex: 1, backgroundColor: colors.background2}}>
       <Header title="Announcement" />
 
       <ScrollView showsVerticalScrollIndicator={false}>

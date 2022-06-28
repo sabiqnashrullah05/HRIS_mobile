@@ -3,11 +3,16 @@ import React from 'react';
 import {COLORS, icons} from '../../constant';
 import {useNavigation} from '@react-navigation/native';
 import {TextTitle} from './Text';
+import {useTheme} from '@react-navigation/native';
+import {ThemeContext} from '../../router/Router';
 
-const {ArrowLeft} = icons;
+const {ArrowLeft, ArrowLeftWhite} = icons;
 
 const Header = ({title}) => {
   const navigation = useNavigation();
+  const {colors} = useTheme();
+  const {theme} = React.useContext(ThemeContext);
+
   return (
     <View
       style={{
@@ -15,10 +20,10 @@ const Header = ({title}) => {
         flexDirection: 'row',
         alignItems: 'center',
         height: 60,
-        backgroundColor: COLORS.white,
+        backgroundColor: colors.background,
       }}>
       <TouchableOpacity onPress={() => navigation.goBack()}>
-        <ArrowLeft />
+        {theme === 'light' ? <ArrowLeft /> : <ArrowLeftWhite />}
       </TouchableOpacity>
       <TextTitle style={{marginLeft: 10}} title={title} />
     </View>

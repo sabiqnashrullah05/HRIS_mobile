@@ -2,14 +2,21 @@ import {View, StatusBar} from 'react-native';
 import React from 'react';
 import {COLORS, images, icons} from '../../../constant';
 import {Button, TextBody, TextHeader, TextTitle} from '../../../components';
+import {useTheme} from '@react-navigation/native';
 const {ArrowRight} = icons;
 
 const {Logo} = images;
 
 const WelcomePage = ({navigation}) => {
+  const {colors} = useTheme();
+  const themes = useTheme();
+
   return (
     <View style={{flex: 1, justifyContent: 'center'}}>
-      <StatusBar translucent backgroundColor={'transparent'} />
+      <StatusBar
+        barStyle={themes.barContent}
+        backgroundColor={colors.background}
+      />
 
       <View style={{alignItems: 'center', marginHorizontal: 24}}>
         <Logo />

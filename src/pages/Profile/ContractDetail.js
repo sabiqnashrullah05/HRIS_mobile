@@ -2,8 +2,10 @@ import {View} from 'react-native';
 import React from 'react';
 import {COLORS} from '../../constant';
 import {Header, TextBody, TextTitle} from '../../components';
+import {useTheme} from '@react-navigation/native';
 
 const ContractDetail = () => {
+  const {colors} = useTheme();
   const List = ({keyTitle, valuetitle}) => {
     return (
       <View
@@ -11,17 +13,17 @@ const ContractDetail = () => {
           flexDirection: 'row',
           justifyContent: 'space-between',
           borderBottomWidth: 1,
-          borderBottomColor: COLORS.lightGray2,
+          borderBottomColor: colors.border,
           paddingHorizontal: 10,
           paddingVertical: 12,
         }}>
-        <TextBody style={{color: COLORS.black}} title={keyTitle} />
+        <TextBody style={{color: colors.textTitle}} title={keyTitle} />
         <TextBody title={valuetitle} />
       </View>
     );
   };
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white2}}>
+    <View style={{flex: 1, backgroundColor: colors.background2}}>
       <Header title="Detail Contract" />
       <View
         style={{alignItems: 'flex-end', paddingHorizontal: 24, marginTop: 20}}>
@@ -31,7 +33,7 @@ const ContractDetail = () => {
         <TextBody style={{marginTop: 20, marginBottom: 10}} title="Detail" />
         <View
           style={{
-            backgroundColor: COLORS.white,
+            backgroundColor: colors.card,
             padding: 10,
             paddingBottom: 30,
             borderRadius: 12,

@@ -1,3 +1,4 @@
+import {useTheme} from '@react-navigation/native';
 import React from 'react';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import {COLORS, icons} from '../../constant';
@@ -8,6 +9,8 @@ const {Eye, EyeClose} = icons;
 const TextField = props => {
   const [focus, setFocus] = React.useState(false);
   const [visible, setVisible] = React.useState(true);
+  const {colors} = useTheme();
+
   return (
     <>
       <TextTitle
@@ -19,12 +22,12 @@ const TextField = props => {
           marginBottom: 10,
           borderWidth: 1,
           backgroundColor:
-            props.label === 'Attachment' ? COLORS.lightGray : COLORS.white,
+            props.label === 'Attachment' ? colors.border : colors.card,
           borderColor: focus
             ? COLORS.primary.satu
             : props.error
             ? COLORS.red
-            : COLORS.lightGray2,
+            : colors.border,
           borderRadius: 6,
         }}>
         <View

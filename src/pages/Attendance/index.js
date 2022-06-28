@@ -10,12 +10,14 @@ import {
   TextHeader,
   TextTitle,
 } from '../../components';
+import {useTheme} from '@react-navigation/native';
 
 const {ArrowLeftGray, ArrowRightGray} = icons;
 
 const Attendance = () => {
+  const {colors} = useTheme();
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white}}>
+    <View style={{flex: 1, backgroundColor: colors.background2}}>
       <Header title="Attendance" />
       {/* Header Indicator Start */}
       <View

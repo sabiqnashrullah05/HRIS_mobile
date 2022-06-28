@@ -2,12 +2,15 @@ import {View, ScrollView} from 'react-native';
 import React from 'react';
 import {COLORS, icons} from '../../constant';
 import {Button, Header, TextField} from '../../components';
+import {useTheme} from '@react-navigation/native';
 
 const {Attachment, CalenderBlack, Time} = icons;
 
 const IzinKeluarKantor = () => {
+  const {colors} = useTheme();
+
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white}}>
+    <View style={{flex: 1, backgroundColor: colors.background}}>
       <Header title="Izin Keluar Kantor" />
       <ScrollView contentContainerStyle={{paddingHorizontal: 24}}>
         <TextField

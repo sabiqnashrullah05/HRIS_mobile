@@ -2,15 +2,18 @@ import {View, Text} from 'react-native';
 import React from 'react';
 import {TextBody} from '../../atom/Text';
 import {images, COLORS, icons} from '../../../constant';
+import {useTheme} from '@react-navigation/native';
 
 const {UserProfile} = images;
 const {ArrowBottom, AttachmentFile} = icons;
 
 const AnnouncementCard = ({styleContainer}) => {
+  const {colors} = useTheme();
+
   return (
     <View
       style={{
-        backgroundColor: COLORS.white,
+        backgroundColor: colors.card,
         marginHorizontal: 24,
         shadowColor: 'rgba(0, 0, 0, 0.09)',
         shadowOffset: {
@@ -33,7 +36,7 @@ const AnnouncementCard = ({styleContainer}) => {
         </View>
         <View style={{flexDirection: 'row', flex: 1}}>
           <View style={{flex: 1, marginLeft: 10}}>
-            <TextBody style={{color: COLORS.black}} title="Marry Anne" />
+            <TextBody style={{color: colors.textTitle}} title="Marry Anne" />
             <TextBody style={{lineHeight: 14}} title="CEO" />
           </View>
           <TextBody style={{fontSize: 11}} title="21/02/2022 03.53 pm" />
@@ -52,7 +55,8 @@ const AnnouncementCard = ({styleContainer}) => {
           marginTop: 20,
           flexDirection: 'row',
           borderWidth: 1,
-          borderColor: COLORS.lightGray2,
+          borderColor: colors.border,
+          backgroundColor: colors.border,
           borderRadius: 8,
           paddingRight: 10,
           alignItems: 'center',

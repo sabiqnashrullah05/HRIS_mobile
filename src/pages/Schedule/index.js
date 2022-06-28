@@ -3,10 +3,12 @@ import React from 'react';
 import {COLORS} from '../../constant';
 import {Header, ScheduleCard, TextTitle} from '../../components';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
+import {useTheme} from '@react-navigation/native';
 
 const Schedule = () => {
+  const {colors} = useTheme();
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.white2}}>
+    <View style={{flex: 1, backgroundColor: colors.background2}}>
       <Header title="Schedule" />
       <View
         style={{
