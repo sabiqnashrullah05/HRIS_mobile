@@ -4,7 +4,7 @@ import {TextBody} from './Text';
 import {COLORS} from '../../constant';
 import {useTheme} from '@react-navigation/native';
 
-const SubmenuItem = ({title, icon, onPress}) => {
+const SubmenuItem = ({title, icon, onPress, styleText}) => {
   const {colors} = useTheme();
 
   return (
@@ -14,7 +14,7 @@ const SubmenuItem = ({title, icon, onPress}) => {
         flex: 1,
         alignItems: 'center',
         paddingVertical: 20,
-        paddingHorizontal: 10,
+        paddingHorizontal: 0,
       }}>
       <View
         style={{
@@ -34,6 +34,7 @@ const SubmenuItem = ({title, icon, onPress}) => {
           fontSize: 10,
           lineHeight: 12,
           marginTop: 7,
+          ...styleText,
         }}
         title={title}
       />

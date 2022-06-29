@@ -3,7 +3,7 @@ import React from 'react';
 import {TextBody} from './Text';
 import {COLORS} from '../../constant';
 
-const MenuItem = ({title, icon, onPress}) => {
+const MenuItem = ({title, icon, onPress, styleText}) => {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -11,7 +11,7 @@ const MenuItem = ({title, icon, onPress}) => {
         flex: 1,
         alignItems: 'center',
         paddingVertical: 20,
-        paddingHorizontal: 10,
+        // paddingHorizontal: 10,
       }}>
       {icon}
       <TextBody
@@ -21,6 +21,7 @@ const MenuItem = ({title, icon, onPress}) => {
           fontSize: 10,
           lineHeight: 12,
           marginTop: 12,
+          ...styleText,
         }}
         title={title}
       />

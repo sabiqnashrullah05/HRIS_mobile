@@ -77,6 +77,7 @@ const Dashboard = ({navigation}) => {
             icon={<LiveAttendance />}
           />
           <MenuItem
+            // styleText={{fontSize: 9}}
             onPress={() => navigation.navigate('Reimbursment')}
             title={'Reimbursment'}
             icon={<Reimbursment />}
@@ -104,6 +105,7 @@ const Dashboard = ({navigation}) => {
           <SubmenuItem
             onPress={() => navigation.navigate('Permission')}
             title="Permission"
+            // styleText={{fontSize: 9}}
             icon={<Permission />}
           />
           <SubmenuItem
