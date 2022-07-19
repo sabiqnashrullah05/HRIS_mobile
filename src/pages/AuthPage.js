@@ -14,24 +14,26 @@ const AuthPage = ({navigation}) => {
   }, []);
 
   const _bootstrapAsync = async () => {
-    const jwtToken = await AsyncStorage.getItem('jwtToken');
+    const jwtToken = await AsyncStorage.getItem('user');
 
     if (jwtToken) {
-      const userData = jwt_decode(jwtToken);
-      setAuthToken(jwtToken);
-      dispatch(setCurrentUser(userData));
+      console.log('user', jwtToken);
+      // const userData = jwt_decode(jwtToken);
+      // setAuthToken(jwtToken);
+      const user = JSON.parse(jwtToken);
+      dispatch(setCurrentUser(user));
 
-      const currenTime = Date.now() / 1000;
+      // const currenTime = Date.now() / 1000;
 
-      if (userData.exp < currenTime) {
-        alert('time out, Please Login again');
+      // if (userData.exp < currenTime) {
+      //   alert('time out, Please Login again');
 
-        dispatch(logoutUser());
-        dispatch(clearProfileUser());
-        return navigation.replace('Auth');
-      }
+      //   dispatch(logoutUser());
+      //   dispatch(clearProfileUser());
+      //   return navigation.replace('Auth');
+      // }
 
-      return navigation.replace('Home');
+      return navigation.replace('HomeScreen');
     } else {
       return navigation.replace('Auth');
     }

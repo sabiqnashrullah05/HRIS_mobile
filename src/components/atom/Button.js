@@ -3,11 +3,22 @@ import React from 'react';
 import {COLORS, FONTS} from '../../constant';
 import {useTheme} from '@react-navigation/native';
 
-const Button = ({onPress, styleContainer, title, iconRight, secondary}) => {
+const Button = ({
+  onPress,
+  styleContainer,
+  title,
+  iconRight,
+  secondary,
+  disabled,
+}) => {
   const {colors} = useTheme();
   const styles = StyleSheet.create({
     container: {
-      backgroundColor: secondary ? colors.border : colors.primary,
+      backgroundColor: disabled
+        ? colors.border
+        : secondary
+        ? colors.border
+        : colors.primary,
       paddingHorizontal: 25,
       paddingVertical: 12,
       borderRadius: 10,
@@ -27,7 +38,10 @@ const Button = ({onPress, styleContainer, title, iconRight, secondary}) => {
     },
   });
   return (
-    <TouchableOpacity onPress={onPress} style={styles.container}>
+    <TouchableOpacity
+      disabled={disabled}
+      onPress={onPress}
+      style={styles.container}>
       <Text style={styles.text}>{title}</Text>
       {iconRight}
     </TouchableOpacity>

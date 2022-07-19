@@ -16,6 +16,7 @@ import ApprovalCard from './molecules/Card/ApprovalCard';
 import PayslipCard from './molecules/Card/PayslipCard';
 import EventCard from './molecules/Card/EventCard';
 import ScheduleCard from './molecules/Card/ScheduleCard';
+import EmptyData from './molecules/Card/EmptyData';
 
 export {
   Button,
@@ -37,4 +38,5 @@ export {
   PayslipCard,
   EventCard,
   ScheduleCard,
+  EmptyData,
 };

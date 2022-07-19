@@ -1,12 +1,13 @@
 import {View, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import React from 'react';
+import moment from 'moment';
 
 import {TextBody, TextTitle} from '../../atom/Text';
 import {COLORS} from '../../../constant';
 import {useTheme} from '@react-navigation/native';
 
-const AttendanceCard = ({styleContainer}) => {
+const AttendanceCard = ({styleContainer, data}) => {
   const {colors} = useTheme();
 
   return (
@@ -44,8 +45,14 @@ const AttendanceCard = ({styleContainer}) => {
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <TextTitle style={{color: COLORS.white}} title="01" />
-        <TextTitle style={{color: COLORS.white}} title="Tue" />
+        <TextTitle
+          style={{color: COLORS.white}}
+          title={moment(data.created_at).format('DD')}
+        />
+        <TextTitle
+          style={{color: COLORS.white}}
+          title={moment(data.created_at).format('ddd')}
+        />
       </LinearGradient>
 
       <View
@@ -54,14 +61,20 @@ const AttendanceCard = ({styleContainer}) => {
           alignItems: 'center',
         }}>
         <TextBody style={{color: colors.textTitle}} title="Clock In" />
-        <TextTitle style={{color: COLORS.gray}} title="07:15" />
+        <TextTitle
+          style={{color: COLORS.gray}}
+          title={moment(data.schedule_in).format('hh:mm')}
+        />
       </View>
       <View
         style={{width: 1, height: '70%', backgroundColor: COLORS.lightGray2}}
       />
       <View style={{flex: 1, alignItems: 'center'}}>
         <TextBody style={{color: colors.textTitle}} title="Clock Out" />
-        <TextTitle style={{color: COLORS.gray}} title="16:15" />
+        <TextTitle
+          style={{color: COLORS.gray}}
+          title={moment(data.schedule_out).format('hh:mm')}
+        />
       </View>
     </TouchableOpacity>
   );

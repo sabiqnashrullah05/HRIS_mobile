@@ -1,4 +1,4 @@
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, ToastAndroid} from 'react-native';
 import React from 'react';
 import {COLORS, images} from '../../../constant';
 import {
@@ -9,11 +9,46 @@ import {
   TextTitle,
 } from '../../../components';
 import {useTheme} from '@react-navigation/native';
+import {useDispatch, useSelector} from 'react-redux';
+import {loginUser, resetLogin} from '../../../redux/action/authAction';
 
 const {Google, Apple} = images;
 
 const Login = ({navigation}) => {
+  const dispatch = useDispatch();
+  const {isAuthenticated, isError} = useSelector(state => state.auth);
+
   const {colors} = useTheme();
+  const [loading, setLoading] = React.useState(false);
+  const [form, setForm] = React.useState({
+    username: '',
+    password: '',
+  });
+
+  const handleOnchange = (value, input) => {
+    setForm({
+      ...form,
+      [input]: value,
+    });
+  };
+
+  const handleLogin = () => {
+    setLoading(true);
+    dispatch(loginUser(form));
+  };
+
+  React.useEffect(() => {
+    console.log('isAuthenticated', isAuthenticated);
+    if (isAuthenticated) {
+      setLoading(false);
+      navigation.replace('HomeScreen');
+    }
+    if (isError) {
+      setLoading(false);
+      dispatch(resetLogin());
+    }
+  }, [isAuthenticated, isError]);
+
   return (
     <View
       style={{
@@ -34,14 +69,17 @@ const Login = ({navigation}) => {
         />
         <TextInputCustom
           styleContainer={{marginTop: 47}}
-          placeholder="Enter Email"
+          placeholder="Enter Username"
           keyboardType="email-address"
-          label={'Email'}
+          value={form.username}
+          onChangeText={value => handleOnchange(value, 'username')}
         />
         <TextInputCustom
           styleContainer={{marginTop: 25}}
           placeholder="Password"
           label={'Password'}
+          value={form.password}
+          onChangeText={value => handleOnchange(value, 'password')}
         />
         <TouchableOpacity
           onPress={() => navigation.navigate('ForgotPassword')}
@@ -49,10 +87,12 @@ const Login = ({navigation}) => {
           <TextBody title="Forgot password" />
         </TouchableOpacity>
         <Button
-          onPress={() => navigation.navigate('HomeScreen')}
+          disabled={loading}
           styleContainer={{marginTop: 36}}
-          title="Login"
+          title={loading ? 'Please Wait' : 'Login'}
+          onPress={handleLogin}
         />
+
         <TextBody
           style={{textAlign: 'center', marginTop: 20, color: colors.textTitle}}
           title="Or"

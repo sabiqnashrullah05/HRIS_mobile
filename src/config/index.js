@@ -1,13 +1,27 @@
-const BASE_URL = 'https://admin.proo.co.id/';
+const BASE_URL = 'https://hris.afkaaruna.sch.id/';
 
 const URIS = {
-  // Login
-  LOGIN_SISWA: 'api/siswa/login',
-  LOGIN_GURU: 'api/guru/login',
+  // ================================= authentikasi
+  REGISTER: 'createAccount',
+  LOGIN: 'postLogin',
 
-  //   Get User
-  USER_SISWA: '/api/siswa/',
-  USER_GURU: 'api/guru/users?_idGuru=',
+  // ================================= dashboard
+  // transfer
+  GET_TRANSFER: 'getTransfer',
+
+  // reimbursment
+  GET_REIMBURSMENT: 'getReimbursement',
+  CREATE_REIMBURSMENT: 'createReimbursement',
+
+  // timeoff
+  GET_TIMEOFF: 'getTimeoff',
+
+  // attendance
+  GET_ATTENDANCE: 'getAttendance',
+  CREATE_ATTENDANCE: 'createAttendance',
+
+  // overtime
+  GET_OVERTIME: 'getOvertime',
 };
 
 export {BASE_URL, URIS};

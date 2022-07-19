@@ -16,6 +16,12 @@ import {
   AnnouncementCard,
 } from '../../components';
 import {useTheme} from '@react-navigation/native';
+import {useDispatch, useSelector} from 'react-redux';
+import {getReimbursment} from '../../redux/action/reimbursmentAction';
+import {getAttendance} from '../../redux/action/attendanceAction';
+import {getOvertime} from '../../redux/action/overtimeAction';
+import {getTimeoff} from '../../redux/action/timeoffAction';
+import {getTransfer} from '../../redux/action/transferAction';
 
 const {UserProfile} = images;
 const {
@@ -31,8 +37,17 @@ const {
 } = icons;
 
 const Dashboard = ({navigation}) => {
+  const dispatch = useDispatch();
   const {colors} = useTheme();
   const themes = useTheme();
+
+  React.useEffect(() => {
+    dispatch(getReimbursment());
+    dispatch(getAttendance());
+    dispatch(getOvertime());
+    dispatch(getTimeoff());
+    dispatch(getTransfer());
+  }, []);
 
   return (
     <View style={{flex: 1, backgroundColor: colors.background}}>

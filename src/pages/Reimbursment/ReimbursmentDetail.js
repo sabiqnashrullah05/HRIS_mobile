@@ -3,10 +3,15 @@ import React from 'react';
 import {COLORS, images} from '../../constant';
 import {Header, TextBody, TextTitle} from '../../components';
 import {useTheme} from '@react-navigation/native';
+import formatNumber from '../../utils/function/formatNumber';
+import moment from 'moment';
 
 const {Resi} = images;
 
-const ReimbursmentDetail = () => {
+const ReimbursmentDetail = ({navigation, route}) => {
+  const {data} = route.params;
+  console.log('data params', data);
+
   const {colors} = useTheme();
 
   return (
@@ -18,7 +23,7 @@ const ReimbursmentDetail = () => {
             style={{color: colors.textTitle}}
             title="Reimbursment Nominal"
           />
-          <TextTitle title="Rp. 100.000" />
+          <TextTitle title={formatNumber(data.nominal)} />
         </View>
         <TextBody style={{marginTop: 17, marginBottom: 10}} title="Detail" />
         <View
@@ -39,7 +44,7 @@ const ReimbursmentDetail = () => {
               <TextBody style={{color: colors.textTitle}} title="Date" />
             </View>
             <View style={{flex: 1, alignItems: 'flex-end'}}>
-              <TextBody title="27/02.2022" />
+              <TextBody title={moment(data.created_at).format('DD/MM/YYYY')} />
             </View>
           </View>
           <View
@@ -54,10 +59,10 @@ const ReimbursmentDetail = () => {
               <TextBody style={{color: colors.textTitle}} title="Reason" />
             </View>
             <View style={{flex: 1, alignItems: 'flex-end'}}>
-              <TextBody title="Pembelian Remote AC" />
+              <TextBody title={data.reason} />
             </View>
           </View>
-          <View
+          {/* <View
             style={{
               flexDirection: 'row',
               paddingVertical: 12,
@@ -69,7 +74,7 @@ const ReimbursmentDetail = () => {
             <View style={{flex: 1, alignItems: 'flex-end'}}>
               <Image source={Resi} style={{width: 115, height: 115}} />
             </View>
-          </View>
+          </View> */}
         </View>
       </View>
     </View>

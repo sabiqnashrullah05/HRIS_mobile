@@ -9,6 +9,7 @@ const introDua = require('@/assets/images/png/introdua.png');
 const introTiga = require('@/assets/images/png/introtiga.png');
 
 const ClockInButton = require('@/assets/images/png/ClockInButton.png');
+const ClockOutButton = require('@/assets/images/png/ClockOutButton.png');
 const Resi = require('../assets/images/png/resi.png');
 export default {
   introSatu,
@@ -20,5 +21,6 @@ export default {
   ForgotPasswordImage,
   UserProfile,
   ClockInButton,
+  ClockOutButton,
   Resi,
 };

@@ -51,7 +51,7 @@ const TextField = props => {
             editable={props.editable}
             onFocus={() => setFocus(true)}
             onBlur={() => setFocus(false)}
-            secureTextEntry={visible}
+            secureTextEntry={props.label === 'Password' && visible}
             {...props}
           />
           {props.label === 'Password' && (

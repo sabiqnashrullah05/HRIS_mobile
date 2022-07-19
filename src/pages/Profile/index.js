@@ -4,11 +4,15 @@ import {useTheme} from '@react-navigation/native';
 import {COLORS, images, icons} from '../../constant';
 import {TextBody, TextHeader, TextTitle} from '../../components';
 import {ThemeContext} from '../../router/Router';
+import {useDispatch, useSelector} from 'react-redux';
+import {logoutUser} from '../../redux/action/authAction';
 
 const {UserProfile} = images;
 const {Employe, Contract, Approval, ArrowRightGray, LogOut, DarkMode} = icons;
 
 const Profile = ({navigation}) => {
+  const dispatch = useDispatch();
+
   const {colors} = useTheme();
   const themes = useTheme();
   const {setTheme, theme} = React.useContext(ThemeContext);
@@ -16,6 +20,11 @@ const Profile = ({navigation}) => {
   const toggleSwitch = () => {
     setIsEnabled(previousState => !previousState);
     setTheme(theme === 'light' ? 'dark' : 'light');
+  };
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    navigation.replace('Auth');
   };
 
   const ListItemProfile = ({title, icon, onPress}) => {
@@ -105,7 +114,7 @@ const Profile = ({navigation}) => {
 
       {/* Button Sign Out */}
       <TouchableOpacity
-        onPress={() => navigation.navigate('Login')}
+        onPress={handleLogout}
         style={{
           backgroundColor: COLORS.primary.tiga,
           paddingVertical: 17,

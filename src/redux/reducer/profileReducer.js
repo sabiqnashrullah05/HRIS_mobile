@@ -3,7 +3,6 @@ import {GET_PROFILE, CLEAR_PROFILE, UPDATE_PROFILE} from '../type';
 const initialState = {
   profile: {},
   guru: null,
-  // isLoading: true,
 };
 
 export default function (state = initialState, action) {
@@ -12,7 +11,6 @@ export default function (state = initialState, action) {
       return {
         ...state,
         profile: action.payload,
-        // isLoading: false,
       };
     case UPDATE_PROFILE:
       return {
