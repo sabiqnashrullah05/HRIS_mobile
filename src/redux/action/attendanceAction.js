@@ -11,9 +11,9 @@ import {
 import {BASE_URL, URIS} from '@/config';
 
 // get profile
-export const getAttendance = () => async dispatch => {
+export const getAttendance = data => async dispatch => {
   await axios
-    .get(`${BASE_URL}${URIS.GET_ATTENDANCE}`)
+    .post(`${BASE_URL}${URIS.GET_ATTENDANCE}`, data)
     .then(response => {
       dispatch({
         type: GET_ATTENDANCE,

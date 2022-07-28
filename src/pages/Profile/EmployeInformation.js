@@ -3,11 +3,14 @@ import React from 'react';
 import {COLORS, images} from '../../constant';
 import {Header, TextBody, TextHeader, TextTitle} from '../../components';
 import {useTheme} from '@react-navigation/native';
+import {useDispatch, useSelector} from 'react-redux';
 
 const {UserProfile} = images;
 
 const EmployeInformation = () => {
   const {colors} = useTheme();
+  const {user} = useSelector(state => state.auth);
+
   const List = ({keyTitle, valuetitle}) => {
     return (
       <View
@@ -34,10 +37,10 @@ const EmployeInformation = () => {
           style={{flexDirection: 'row', marginTop: 20, alignItems: 'center'}}>
           <UserProfile width={59} height={59} />
           <View style={{marginLeft: 20}}>
-            <TextHeader title="Kylie Jenner" />
+            <TextHeader title={user?.name} />
             <TextBody
               style={{fontSize: 14, color: colors.textTitle}}
-              title="Kylee.jen@gmail.com"
+              title={user?.email}
             />
           </View>
         </View>
@@ -51,7 +54,7 @@ const EmployeInformation = () => {
             borderRadius: 12,
             marginTop: 20,
           }}>
-          <List keyTitle="Phone Numbare" valuetitle="081271076754" />
+          <List keyTitle="Phone Numbare" valuetitle={user?.phone} />
           <List keyTitle="Address" valuetitle="Surabaya - Indonesia" />
         </View>
 

@@ -10,7 +10,6 @@ const {Resi} = images;
 
 const ReimbursmentDetail = ({navigation, route}) => {
   const {data} = route.params;
-  console.log('data params', data);
 
   const {colors} = useTheme();
 

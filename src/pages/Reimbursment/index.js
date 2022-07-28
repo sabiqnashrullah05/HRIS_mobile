@@ -4,10 +4,6 @@ import {COLORS, icons} from '../../constant';
 import {EmptyData, Header, TextBody, TextTitle} from '../../components';
 import {useTheme} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
-import {
-  getReimbursment,
-  resetReimbursment,
-} from '../../redux/action/reimbursmentAction';
 import moment from 'moment';
 import formatNumber from '../../utils/function/formatNumber';
 
@@ -16,7 +12,7 @@ const {Plus} = icons;
 const Reimbursment = ({navigation}) => {
   const {colors} = useTheme();
   const dispatch = useDispatch();
-  const {isSucces, data} = useSelector(state => state.reimbursment);
+  const {data} = useSelector(state => state.reimbursment);
   console.log('data', data);
 
   return (

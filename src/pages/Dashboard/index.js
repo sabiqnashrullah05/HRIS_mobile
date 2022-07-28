@@ -22,6 +22,13 @@ import {getAttendance} from '../../redux/action/attendanceAction';
 import {getOvertime} from '../../redux/action/overtimeAction';
 import {getTimeoff} from '../../redux/action/timeoffAction';
 import {getTransfer} from '../../redux/action/transferAction';
+import {getCashAdvance} from '../../redux/action/cashAdvanceAction';
+import {getLoan} from '../../redux/action/loanAction';
+import {getResign} from '../../redux/action/resignAction';
+import {getAsset} from '../../redux/action/assetAction';
+import {getReprimand} from '../../redux/action/reprimandAction';
+import {getCompanyFile} from '../../redux/action/companyFileAction';
+import {getEmployeeFile} from '../../redux/action/employeeFileAction';
 
 const {UserProfile} = images;
 const {
@@ -38,15 +45,29 @@ const {
 
 const Dashboard = ({navigation}) => {
   const dispatch = useDispatch();
+  const {user} = useSelector(state => state.auth);
+  console.log('user ======>', user);
   const {colors} = useTheme();
   const themes = useTheme();
 
   React.useEffect(() => {
-    dispatch(getReimbursment());
-    dispatch(getAttendance());
-    dispatch(getOvertime());
-    dispatch(getTimeoff());
-    dispatch(getTransfer());
+    const data = {
+      id: user?.id,
+    };
+    Promise.all([
+      dispatch(getReimbursment(data)),
+      dispatch(getAttendance(data)),
+      dispatch(getOvertime(data)),
+      dispatch(getTimeoff(data)),
+      dispatch(getTransfer(data)),
+      dispatch(getCashAdvance(data)),
+      dispatch(getLoan(data)),
+      dispatch(getResign(data)),
+      dispatch(getAsset(data)),
+      dispatch(getReprimand(data)),
+      dispatch(getCompanyFile(data)),
+      dispatch(getEmployeeFile(data)),
+    ]);
   }, []);
 
   return (

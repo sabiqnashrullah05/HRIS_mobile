@@ -79,8 +79,11 @@ const LiveAttendance = ({navigation}) => {
   };
 
   React.useEffect(() => {
+    const data = {
+      id: user?.id,
+    };
     if (isSucces) {
-      dispatch(getAttendance());
+      dispatch(getAttendance(data));
       dispatch(resetAttendance());
     }
   }, [isSucces]);

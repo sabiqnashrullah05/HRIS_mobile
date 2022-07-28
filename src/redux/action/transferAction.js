@@ -4,9 +4,9 @@ import {GET_TRANSFER} from '../type';
 import {BASE_URL, URIS} from '@/config';
 
 // get overtime
-export const getTransfer = () => async dispatch => {
+export const getTransfer = data => async dispatch => {
   await axios
-    .get(`${BASE_URL}${URIS.GET_TRANSFER}`)
+    .post(`${BASE_URL}${URIS.GET_TRANSFER}`, data)
     .then(response => {
       dispatch({
         type: GET_TRANSFER,

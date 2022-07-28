@@ -11,6 +11,7 @@ const {UserProfile} = images;
 const {Employe, Contract, Approval, ArrowRightGray, LogOut, DarkMode} = icons;
 
 const Profile = ({navigation}) => {
+  const {user} = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
   const {colors} = useTheme();
@@ -61,7 +62,7 @@ const Profile = ({navigation}) => {
       />
       <View style={{alignItems: 'center', marginTop: 45}}>
         <UserProfile />
-        <TextHeader style={{marginTop: 17}} title="Kylie Jenner" />
+        <TextHeader style={{marginTop: 17}} title={user?.name} />
         <TextBody title="IT Development" />
       </View>
       <View

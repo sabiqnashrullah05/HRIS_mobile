@@ -1,14 +1,24 @@
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, FlatList} from 'react-native';
 import React from 'react';
 import {COLORS, icons} from '../../constant';
-import {Header, Tags, TextBody, TextTitle, TextHeader} from '../../components';
+import {
+  Header,
+  Tags,
+  TextBody,
+  TextTitle,
+  TextHeader,
+  EmptyData,
+} from '../../components';
 import SemiCircleProgress from 'react-native-semi-circle-progress';
 import {useTheme} from '@react-navigation/native';
+import {useSelector} from 'react-redux';
 
 const {Plus} = icons;
 
 const Timeoff = ({navigation}) => {
   const {colors} = useTheme();
+
+  const {data} = useSelector(state => state.timeoff);
 
   return (
     <View style={{flex: 1, backgroundColor: colors.background}}>
@@ -36,7 +46,7 @@ const Timeoff = ({navigation}) => {
           }}>
           <View>
             <TextTitle title="Time Off History" />
-            <TextBody title="2 Data" />
+            <TextBody title={`${data.length} Data`} />
           </View>
 
           <TouchableOpacity
@@ -51,78 +61,39 @@ const Timeoff = ({navigation}) => {
         </View>
 
         {/* Card Start */}
-        <TouchableOpacity
-          onPress={() => navigation.navigate('TimeoffDetail')}
-          style={{
-            paddingVertical: 14,
-            paddingHorizontal: 20,
-            borderWidth: 1,
-            borderRadius: 12,
-            borderColor: colors.border,
-            backgroundColor: colors.card,
-            marginTop: 21,
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}>
-            <View>
-              <TextTitle title="Cuti Menikah" />
-              <TextBody style={{marginTop: 10}} title="17/07/2022" />
-            </View>
-            <Tags type="Approved" />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('TimeoffDetail')}
-          style={{
-            paddingVertical: 14,
-            paddingHorizontal: 20,
-            borderWidth: 1,
-            borderRadius: 12,
-            borderColor: colors.border,
-            backgroundColor: colors.card,
-            marginTop: 21,
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}>
-            <View>
-              <TextTitle title="Cuti Anggota Keluarga" />
-              <TextBody style={{marginTop: 10}} title="03/03/2022" />
-            </View>
-            <Tags type="Rejected" />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('TimeoffDetail')}
-          style={{
-            paddingVertical: 14,
-            paddingHorizontal: 20,
-            borderWidth: 1,
-            borderRadius: 12,
-            borderColor: colors.border,
-            backgroundColor: colors.card,
-            marginTop: 21,
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}>
-            <View>
-              <TextTitle title="Cuti Melahirkan" />
-              <TextBody style={{marginTop: 10}} title="03/03/2022" />
-            </View>
-            <Tags type="Pending" />
-          </View>
-        </TouchableOpacity>
+        <FlatList
+          data={data}
+          keyExtractor={item => `${item.id}`}
+          renderItem={({item}) => {
+            return (
+              <TouchableOpacity
+                onPress={() => navigation.navigate('TimeoffDetail')}
+                style={{
+                  paddingVertical: 14,
+                  paddingHorizontal: 20,
+                  borderWidth: 1,
+                  borderRadius: 12,
+                  borderColor: colors.border,
+                  backgroundColor: colors.card,
+                  marginTop: 21,
+                }}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                  }}>
+                  <View>
+                    <TextTitle title="Cuti Menikah" />
+                    <TextBody style={{marginTop: 10}} title="17/07/2022" />
+                  </View>
+                  <Tags type="Approved" />
+                </View>
+              </TouchableOpacity>
+            );
+          }}
+          ListEmptyComponent={<EmptyData />}
+        />
 
         {/* Card End */}
       </View>

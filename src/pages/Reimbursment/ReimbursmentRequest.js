@@ -12,7 +12,7 @@ import {
   resetReimbursment,
 } from '../../redux/action/reimbursmentAction';
 
-const {Attachment, CalenderBlack} = icons;
+const {CalenderBlack} = icons;
 
 const ReimbursmentRequest = ({navigation}) => {
   const dispatch = useDispatch();
@@ -50,9 +50,12 @@ const ReimbursmentRequest = ({navigation}) => {
   };
 
   React.useEffect(() => {
+    const data = {
+      id: user?.id,
+    };
     if (isSucces) {
       setLoading(false);
-      dispatch(getReimbursment());
+      dispatch(getReimbursment(data));
       dispatch(resetReimbursment());
       setTimeout(() => {
         navigation.goBack();

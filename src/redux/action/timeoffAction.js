@@ -4,9 +4,9 @@ import {GET_TIMEOFF} from '../type';
 import {BASE_URL, URIS} from '@/config';
 
 // get overtime
-export const getTimeoff = () => async dispatch => {
+export const getTimeoff = data => async dispatch => {
   await axios
-    .get(`${BASE_URL}${URIS.GET_TIMEOFF}`)
+    .post(`${BASE_URL}${URIS.GET_TIMEOFF}`, data)
     .then(response => {
       dispatch({
         type: GET_TIMEOFF,

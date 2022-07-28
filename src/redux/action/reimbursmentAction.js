@@ -4,9 +4,9 @@ import {GET_REIMBURSMENT, RESET_REIMBURSMENT, POST_REIMBURSMENT} from '../type';
 import {BASE_URL, URIS} from '@/config';
 
 // get profile
-export const getReimbursment = () => async dispatch => {
+export const getReimbursment = data => async dispatch => {
   await axios
-    .get(`${BASE_URL}${URIS.GET_REIMBURSMENT}`)
+    .post(`${BASE_URL}${URIS.GET_REIMBURSMENT}`, data)
     .then(response => {
       dispatch({
         type: GET_REIMBURSMENT,

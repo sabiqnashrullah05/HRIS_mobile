@@ -3,10 +3,13 @@ import React from 'react';
 import {COLORS, images} from '../../constant';
 import {Header, TextBody, TextTitle} from '../../components';
 import {useTheme} from '@react-navigation/native';
+import formatNumber from '../../utils/function/formatNumber';
+import moment from 'moment';
 
 const {Resi} = images;
 
-const CashAdvanceDetail = () => {
+const CashAdvanceDetail = ({route}) => {
+  const {data} = route.params;
   const {colors} = useTheme();
   return (
     <View style={{flex: 1, backgroundColor: colors.background2}}>
@@ -17,7 +20,7 @@ const CashAdvanceDetail = () => {
             style={{color: colors.textTitle}}
             title="Cash Advance Nominal"
           />
-          <TextTitle title="Rp. 100.000" />
+          <TextTitle title={formatNumber(data.nominal || 0)} />
         </View>
         <TextBody style={{marginTop: 17, marginBottom: 10}} title="Detail" />
         <View
@@ -38,7 +41,7 @@ const CashAdvanceDetail = () => {
               <TextBody style={{color: colors.textTitle}} title="Date of Use" />
             </View>
             <View style={{flex: 1, alignItems: 'flex-end'}}>
-              <TextBody title="27/02.2022" />
+              <TextBody title={moment(data.created_at).format('DD/MM/YYYY')} />
             </View>
           </View>
           <View
@@ -53,7 +56,7 @@ const CashAdvanceDetail = () => {
               <TextBody style={{color: colors.textTitle}} title="Policy Name" />
             </View>
             <View style={{flex: 1, alignItems: 'flex-end'}}>
-              <TextBody title="Uli Ahda Raihan" />
+              <TextBody title={data.policy} />
             </View>
           </View>
           <View
@@ -68,13 +71,10 @@ const CashAdvanceDetail = () => {
               <TextBody style={{color: colors.textTitle}} title="Reason" />
             </View>
             <View style={{flex: 1, alignItems: 'flex-end'}}>
-              <TextBody
-                style={{textAlign: 'right'}}
-                title="Pembayaran mengenai barang kantor"
-              />
+              <TextBody style={{textAlign: 'right'}} title={data.description} />
             </View>
           </View>
-          <View
+          {/* <View
             style={{
               flexDirection: 'row',
               paddingVertical: 12,
@@ -86,7 +86,7 @@ const CashAdvanceDetail = () => {
             <View style={{flex: 1, alignItems: 'flex-end'}}>
               <Image source={Resi} style={{width: 115, height: 115}} />
             </View>
-          </View>
+          </View> */}
         </View>
       </View>
     </View>
